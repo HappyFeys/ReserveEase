@@ -2,11 +2,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
+
 
 [ApiController]
 [Route("[controller]")]
 public class AuthController : ControllerBase
 {
+    private readonly ApplicationDbContext _context;
+
+    public AuthController(ApplicationDbContext context)
+    {
+        _context = context;
+    }
+
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginModel model)
     {
@@ -15,11 +24,13 @@ public class AuthController : ControllerBase
             return BadRequest(new { message = "Already logged in" });
         }
 
-        if (model.Username == "admin" && model.Password == "password") // Remplacez par votre logique d'authentification
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == model.Username && u.Password == model.Password);
+        if (user != null)
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, model.Username)
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Email, user.Email)
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
