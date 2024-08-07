@@ -66,39 +66,25 @@
         <p>Description: Authenticates a user and creates a session.</p>
         <h3>Request Body</h3>
         <pre><code>{
-    "username": "string",
-    "password": "string"
-}</code></pre>
-        <h3>Responses</h3>
-        <p><strong>200 OK</strong> - Login successful</p>
-        <pre><code>{
-    "message": "Login successful"
-}</code></pre>
-        <p><strong>400 Bad Request</strong> - Already logged in</p>
-        <pre><code>{
-    "message": "Already logged in"
-}</code></pre>
-        <p><strong>401 Unauthorized</strong> - Invalid credentials</p>
-        <pre><code>{
-    "message": "Invalid credentials"
-}</code></pre>
-    </div>
-
-    <button class="collapsible">Logout</button>
-    <div class="content">
-        <p>Endpoint: <code>POST /auth/logout</code></p>
-        <p>Description: Logs out the authenticated user and ends the session.</p>
-        <h3>Responses</h3>
-        <p><strong>200 OK</strong> - Logout successful</p>
-        <pre><code>{
-    "message": "Logout successful"
-}</code></pre>
-        <p><strong>400 Bad Request</strong> - Not logged in</p>
-        <pre><code>{
-    "message": "Not logged in"
-}</code></pre>
-    </div>
-
+"username": "string",
+"password": "string"}</code></pre>
+<h3>Responses</h3>
+<p><strong>200 OK</strong> - Login successful</p>
+<pre><code>{ “message”: “Login successful” }</code></pre>
+<p><strong>400 Bad Request</strong> - Already logged in</p>
+<pre><code>{ “message”: “Already logged in” }</code></pre>
+<p><strong>401 Unauthorized</strong> - Invalid credentials</p>
+<pre><code>{ “message”: “Invalid credentials” }</code></pre>
+</div><button class="collapsible">Logout</button>
+<div class="content">
+    <p>Endpoint: <code>POST /auth/logout</code></p>
+    <p>Description: Logs out the authenticated user and ends the session.</p>
+    <h3>Responses</h3>
+    <p><strong>200 OK</strong> - Logout successful</p>
+    <pre><code>{“message”: “Logout successful” }</code></pre>
+    <p><strong>400 Bad Request</strong> - Not logged in</p>
+    <pre><code>{ “message”: “Not logged in” }</code></pre>
+    </div><button id="sendMessageButton">Send WebSocket Message</button>
     <script>
         var coll = document.getElementsByClassName("collapsible");
         for (var i = 0; i < coll.length; i++) {
@@ -112,7 +98,35 @@
                 }
             });
         }
-    </script>
-</body>
 
-</html>
+    const socket = new WebSocket('ws://localhost:5001/ws');
+
+    socket.onopen = function (event) {
+        console.log('Connexion établie');
+    };
+
+    socket.onmessage = function (event) {
+        alert('Message reçu du serveur : ' + event.data);
+    };
+
+    socket.onerror = function (error) {
+        console.log('Erreur WebSocket :', error);
+        console.log("Détails de l'erreur WebSocket : ", error.message);
+    };
+
+    socket.onclose = function (event) {
+        if (event.wasClean) {
+            console.log(`Connexion fermée proprement, code=${event.code} raison=${event.reason}`);
+        } else {
+            console.log('Connexion interrompue');
+        }
+    };
+
+    document.getElementById('sendMessageButton').addEventListener('click', function () {
+        socket.send('Message du client');
+    });
+    </script>
+    
+    </body>
+    
+    </html>
