@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# c#
+
+.Backend/bin/*
+.Backend/obj/Debug/*
+
