@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "PlWJtAnRJwEglLMSJnNF+X3yxi6DK6nfqNhlKhdJJdY=",
+  "Source": "Booking",
+  "BasePath": "_content/Booking",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Booking\\wwwroot",
+      "Source": "Booking",
+      "ContentRoot": "C:\\Users\\Nathanaël\\Documents\\Formation\\ReserveEase\\Backend\\wwwroot\\",
+      "BasePath": "_content/Booking",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Nathanaël\\Documents\\Formation\\ReserveEase\\Backend\\wwwroot\\index.html",
+      "SourceId": "Booking",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nathanaël\\Documents\\Formation\\ReserveEase\\Backend\\wwwroot\\",
+      "BasePath": "_content/Booking",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}
