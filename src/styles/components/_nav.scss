@@ -1,0 +1,11 @@
+nav {
+    @extend .flexBetweenCenter;
+    width:300px;
+    div {
+        @extend .pointer;
+    }
+    div:hover {
+        transform: scale(110%);
+        color:var(--text2);
+    }
+}
