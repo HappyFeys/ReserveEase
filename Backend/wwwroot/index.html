@@ -65,7 +65,8 @@
         <p>Endpoint: <code>POST /auth/login</code></p>
         <p>Description: Authenticates a user and creates a session.</p>
         <h3>Request Body</h3>
-        <pre><code>{
+        <pre>
+                                                                    <code>{
 "username": "string",
 "password": "string"}</code></pre>
 <h3>Responses</h3>
@@ -75,7 +76,11 @@
 <pre><code>{ “message”: “Already logged in” }</code></pre>
 <p><strong>401 Unauthorized</strong> - Invalid credentials</p>
 <pre><code>{ “message”: “Invalid credentials” }</code></pre>
-</div><button class="collapsible">Logout</button>
+</div>
+
+<!-- ----------------------------------------------------------------------------------- -->
+
+<button class="collapsible">Logout</button>
 <div class="content">
     <p>Endpoint: <code>POST /auth/logout</code></p>
     <p>Description: Logs out the authenticated user and ends the session.</p>
@@ -84,7 +89,73 @@
     <pre><code>{“message”: “Logout successful” }</code></pre>
     <p><strong>400 Bad Request</strong> - Not logged in</p>
     <pre><code>{ “message”: “Not logged in” }</code></pre>
-    </div><button id="sendMessageButton">Send WebSocket Message</button>
+    </div>
+    <!-- ----------------------------------------------------------------------------------- -->
+    <button class="collapsible">Connexion WebSocket</button>
+    <div class="content">
+        <h2>Connexion WebSocket</h2>
+        <pre><code class="language-javascript">
+const socket = new WebSocket('ws://localhost:5001/ws');
+    </code></pre>
+    <p>Description: Cette ligne crée une nouvelle connexion WebSocket à l’URL spécifiée
+        (<code>ws://localhost:5001/ws</code>).</p>
+    
+    <h2>Événement onopen</h2>
+    
+    <pre><code class="language-javascript">
+socket.onopen = function (event) {
+console.log('Connexion établie');
+};
+    </code></pre>
+    <p>Description: Cet événement est déclenché lorsque la connexion WebSocket est établie avec succès. La fonction
+        associée affiche un message dans la console indiquant que la connexion est établie.</p>
+    
+    <h2>Événement onmessage</h2>
+    
+    <pre><code class="language-javascript">
+socket.onmessage = function (event) {
+alert('Message reçu du serveur : ' + event.data);
+};
+    </code></pre>
+    <p>Description: Cet événement est déclenché lorsqu’un message est reçu du serveur. La fonction associée affiche une
+        alerte avec le contenu du message reçu.</p>
+    
+    <h2>Événement onerror</h2>
+    
+    <pre><code class="language-javascript">
+socket.onerror = function (error) {
+console.log('Erreur WebSocket :', error);
+console.log("Détails de l'erreur WebSocket : ", error.message);
+};
+    </code></pre>
+    <p>Description: Cet événement est déclenché lorsqu’une erreur se produit dans la connexion WebSocket. La fonction
+        associée affiche les détails de l’erreur dans la console.</p>
+    
+    <h2>Événement onclose</h2>
+    
+    <pre><code class="language-javascript">
+socket.onclose = function (event) {
+if (event.wasClean) {
+console.log(`Connexion fermée proprement, code=${event.code} raison=${event.reason}`);
+} else {
+console.log('Connexion interrompue');
+}
+};
+    </code></pre>
+    <p>Description: Cet événement est déclenché lorsque la connexion WebSocket est fermée. La fonction associée vérifie
+        si la fermeture a été propre et affiche un message approprié dans la console.</p>
+
+<h2>Envoi de message</h2>
+<pre><code class="language-javascript">
+document.getElementById('sendMessageButton').addEventListener('click', function () {
+socket.send('Message du client');
+});
+    </code></pre>
+    <p>Description: Cette ligne ajoute un écouteur d’événements au bouton avec l’ID <code>sendMessageButton</code>.
+        Lorsque le bouton est cliqué, un message est envoyé au serveur via la connexion WebSocket.</p>
+</div>
+    
+    <!-- <button id="sendMessageButton">Send WebSocket Message</button> -->
     <script>
         var coll = document.getElementsByClassName("collapsible");
         for (var i = 0; i < coll.length; i++) {
@@ -105,26 +176,26 @@
         console.log('Connexion établie');
     };
 
-    socket.onmessage = function (event) {
-        alert('Message reçu du serveur : ' + event.data);
-    };
+        // socket.onmessage = function (event) {
+        //     alert('Message reçu du serveur : ' + event.data);
+        // };
 
-    socket.onerror = function (error) {
-        console.log('Erreur WebSocket :', error);
-        console.log("Détails de l'erreur WebSocket : ", error.message);
-    };
+        // socket.onerror = function (error) {
+        //     console.log('Erreur WebSocket :', error);
+        //     console.log("Détails de l'erreur WebSocket : ", error.message);
+        // };
 
-    socket.onclose = function (event) {
-        if (event.wasClean) {
-            console.log(`Connexion fermée proprement, code=${event.code} raison=${event.reason}`);
-        } else {
-            console.log('Connexion interrompue');
-        }
-    };
+        // socket.onclose = function (event) {
+        //     if (event.wasClean) {
+        //         console.log(`Connexion fermée proprement, code=${event.code} raison=${event.reason}`);
+        //     } else {
+        //         console.log('Connexion interrompue');
+        //     }
+        // };
 
-    document.getElementById('sendMessageButton').addEventListener('click', function () {
-        socket.send('Message du client');
-    });
+        // document.getElementById('sendMessageButton').addEventListener('click', function () {
+        //     socket.send('Message du client');
+        // });
     </script>
     
     </body>
