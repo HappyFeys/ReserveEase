@@ -25,6 +25,7 @@ dist-ssr
 
 # c#
 
-.Backend/bin/*
-.Backend/obj/Debug/*
+Backend/bin/
+Backend/obj/
+Migrations/
 
