@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "57nUNl0u+Cg=",
+  "dgSpecHash": "o8O6WZ84rOY=",
   "success": true,
   "projectFilePath": "C:\\Users\\Nathanaël\\Documents\\Formation\\ReserveEase\\Backend\\Booking.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,7 @@
     "C:\\Users\\Nathanaël\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\Nathanaël\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.7\\microsoft.aspnetcore.jsonpatch.8.0.7.nupkg.sha512",
     "C:\\Users\\Nathanaël\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\8.0.7\\microsoft.aspnetcore.mvc.newtonsoftjson.8.0.7.nupkg.sha512",
+    "C:\\Users\\Nathanaël\\.nuget\\packages\\microsoft.aspnetcore.websockets\\2.2.1\\microsoft.aspnetcore.websockets.2.2.1.nupkg.sha512",
     "C:\\Users\\Nathanaël\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\Nathanaël\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\Nathanaël\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
@@ -66,6 +67,7 @@
     "C:\\Users\\Nathanaël\\.nuget\\packages\\system.composition.runtime\\6.0.0\\system.composition.runtime.6.0.0.nupkg.sha512",
     "C:\\Users\\Nathanaël\\.nuget\\packages\\system.composition.typedparts\\6.0.0\\system.composition.typedparts.6.0.0.nupkg.sha512",
     "C:\\Users\\Nathanaël\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
+    "C:\\Users\\Nathanaël\\.nuget\\packages\\system.net.websockets.websocketprotocol\\4.5.3\\system.net.websockets.websocketprotocol.4.5.3.nupkg.sha512",
     "C:\\Users\\Nathanaël\\.nuget\\packages\\system.reflection.metadata\\6.0.1\\system.reflection.metadata.6.0.1.nupkg.sha512",
     "C:\\Users\\Nathanaël\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Nathanaël\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",

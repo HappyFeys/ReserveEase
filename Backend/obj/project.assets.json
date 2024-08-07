@@ -284,6 +284,25 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Microsoft.AspNetCore.WebSockets/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Options": "2.2.0",
+          "System.Net.WebSockets.WebSocketProtocol": "4.5.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.WebSockets.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.WebSockets.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.WebUtilities/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -1215,6 +1234,15 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
+      "System.Net.WebSockets.WebSocketProtocol/4.5.3": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Net.WebSockets.WebSocketProtocol.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/System.Net.WebSockets.WebSocketProtocol.dll": {}
+        }
+      },
       "System.Reflection.Metadata/6.0.1": {
         "type": "package",
         "dependencies": {
@@ -1665,6 +1693,19 @@
         "lib/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.xml",
         "microsoft.aspnetcore.mvc.newtonsoftjson.8.0.7.nupkg.sha512",
         "microsoft.aspnetcore.mvc.newtonsoftjson.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.WebSockets/2.2.1": {
+      "sha512": "Ilk4fQ0xdVpJk1a+72thHv2LglUZPWL+vECOG3mw+gOesNx0/p56HNJXZw8k1pj8ff1cVHn8KtfvyRZxdplNQA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.websockets/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.WebSockets.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.WebSockets.xml",
+        "microsoft.aspnetcore.websockets.2.2.1.nupkg.sha512",
+        "microsoft.aspnetcore.websockets.nuspec"
       ]
     },
     "Microsoft.AspNetCore.WebUtilities/2.2.0": {
@@ -3134,6 +3175,24 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "System.Net.WebSockets.WebSocketProtocol/4.5.3": {
+      "sha512": "O8RIMEVeOFzT8fscu6MDc4y+0LfnlXdqGovb0rJHBNVKhwn6BsNJmTY1oYUZPPsMfcc5OP20WpX4vj/aK8n98g==",
+      "type": "package",
+      "path": "system.net.websockets.websocketprotocol/4.5.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/System.Net.WebSockets.WebSocketProtocol.dll",
+        "lib/netstandard2.0/System.Net.WebSockets.WebSocketProtocol.dll",
+        "ref/netstandard2.0/System.Net.WebSockets.WebSocketProtocol.dll",
+        "system.net.websockets.websocketprotocol.4.5.3.nupkg.sha512",
+        "system.net.websockets.websocketprotocol.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Reflection.Metadata/6.0.1": {
       "sha512": "III/lNMSn0ZRBuM9m5Cgbiho5j81u0FAEagFX5ta2DKbljZ3T0IpD8j+BIiHQPeKqJppWS9bGEp6JnKnWKze0g==",
       "type": "package",
@@ -3584,6 +3643,7 @@
     "net8.0": [
       "Microsoft.AspNetCore.Authentication.Cookies >= 2.2.0",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 8.0.7",
+      "Microsoft.AspNetCore.WebSockets >= 2.2.1",
       "Microsoft.EntityFrameworkCore >= 8.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.7",
       "Microsoft.Extensions.Configuration >= 8.0.0",
@@ -3647,6 +3707,10 @@
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
             "version": "[8.0.7, )"
+          },
+          "Microsoft.AspNetCore.WebSockets": {
+            "target": "Package",
+            "version": "[2.2.1, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
