@@ -519,6 +519,7 @@ template {
   --Onyx: #363843;
   --AuroMetalSaurus: #727584;
   --Manatee: #9B9CA1;
+  --Magnolia: hsl(217, 100%, 97%);
   --Regular: 400;
   --Medium: 500;
   --SemiBold: 600;
@@ -782,6 +783,175 @@ main::-webkit-scrollbar-track {
 main::-webkit-scrollbar-thumb {
   background-color: var(--colorText);
   border-radius: 20px;
+}
+
+.onboarding {
+  position: relative;
+  height: 100vh;
+}
+.onboarding .onboarding__img--main {
+  transform: scale(1.5);
+}
+.onboarding .onboarding__text {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  bottom: 25px;
+  z-index: 10;
+  border-radius: 20px 20px 0 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--Onyx);
+  text-align: center;
+  padding: 0 20px;
+}
+.onboarding .onboarding__text h1 {
+  margin: 15px 0;
+}
+.onboarding .btn {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--CeladonBlue);
+}
+.onboarding .onboarding__btn {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+}
+.onboarding .onboarding__btn a {
+  width: 50%;
+  margin: 10px;
+}
+
+.signUp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.signUp .signUp__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signUp .signup__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.signUp .signup__header h1 {
+  margin: 10px;
+  text-align: center;
+}
+.signUp form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--Magnolia);
+  padding: 20px 0;
+  border-radius: 10px;
+}
+.signUp form .form__elem {
+  width: 75%;
+}
+.signUp form .form__elem input {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  position: relative;
+  margin: 20px 0;
+  text-indent: 20px;
+  font-size: 16px;
+}
+.signUp form .form__elem label {
+  position: absolute;
+  z-index: 10;
+  transition: transform 1s ease-in-out;
+  transform: translate(20px, 100%);
+  font-weight: var(--Medium);
+}
+.signUp form .form__elem .form__elem--submit {
+  background-color: var(--CeladonBlue);
+  color: #fff;
+  font-size: 18px;
+}
+.signUp form .form__elem .form__elem--selected {
+  transform: translate(0, -20%);
+}
+.signUp form .form__elem--double {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 90%;
+}
+.signUp form .form__elem--double .double {
+  width: 40%;
+}
+.signUp form .form__elem--double .double input {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  position: relative;
+  margin: 20px 0;
+  text-indent: 20px;
+  font-size: 14px;
+}
+.signUp form .form__elem--double .double label {
+  position: absolute;
+  z-index: 10;
+  transition: transform 1s ease-in-out;
+  transform: translate(20px, 100%);
+  font-weight: var(--Medium);
+}
+.signUp form .form__elem--double .double .form__elem--selected {
+  transform: translate(0, -20%);
+}
+.signUp .signUp__text {
+  margin-top: 30px;
+}
+.signUp .signUp__text--sign {
+  margin-bottom: 30px;
+}
+.signUp .signUp__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+}
+.signUp .signUp__btn .btn {
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--CeladonBlue);
+  margin-bottom: 30px;
+}
+.signUp .form__elem--select {
+  width: 75%;
+  height: 60px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  text-indent: 20px;
+}
+.signUp .default {
+  font-weight: var(--Medium);
 }
 
 html {
