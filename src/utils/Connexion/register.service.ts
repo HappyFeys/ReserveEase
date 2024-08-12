@@ -14,7 +14,7 @@ export const validateEmail = (email: string) => {
 };
 
 const validatePhone = (phone : string) => {
-    const phoneRegex = /^[0-9]{10}$/;
+    const phoneRegex = /^\d{5,15}$/;
     return phoneRegex.test(phone);
 }
 
@@ -26,26 +26,35 @@ const validatePasswordRepeat = (password: string, passwordRepeat: string) => {
     return password === passwordRepeat;
 };
 
-export const createUser = async (formData : UserRegister) => {
+export const createUser = async (formData : UserRegister, passwordRepeat:string) => {
+    console.log("avant verif");
     if (
         validateLastname(formData.lastname) &&
         validateFirstname(formData.firstname) &&
         validateEmail(formData.email) &&
         validatePhone(formData.phonenumber) &&
         validatePassword(formData.password) &&
-        validatePasswordRepeat(formData.password, formData.passwordRepeat!)
+        validatePasswordRepeat(formData.password, passwordRepeat!)
     ) {
+        console.log("je rentre ici");
         try{
             const response = await fetch('http://localhost:5001/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(formData),
+                credentials: 'include'
         })
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
         console.log(data.message);
         console.log(data)
+
         } catch (error: any) {
             console.error('Error creating user:', error);
             if (error.response) {

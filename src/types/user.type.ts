@@ -3,7 +3,6 @@ export interface UserRegister {
     firstname: string;
     email: string;
     password: string;
-    passwordRepeat?: string;
     phonenumber: string;
 }
 

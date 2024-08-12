@@ -1,5 +1,6 @@
 using MailKit.Net.Smtp;
 using MimeKit;
+using MailKit.security;
 
 public static class Mail
 {
@@ -17,7 +18,8 @@ public static class Mail
 
         using (var client = new SmtpClient())
         {
-            client.Connect("smtp.gmail.com", 587, false);
+            client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+            client.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls );
             client.Authenticate("nathanaelamd@gmail.com", "ehcd mfpe grlq tlqi");
             client.Send(message);
             client.Disconnect(true);

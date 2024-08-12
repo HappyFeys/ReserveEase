@@ -13,6 +13,8 @@ function Register() {
         password: ""
     })
 
+    const [passWordRepeat, setPassWordRepeat] = useState("");
+
     const [isSelected, setIsSelected] = useState({
         email: false,
         firstname: false,
@@ -68,7 +70,8 @@ function Register() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        createUser(formData)
+        console.log("je submit mon formulaire");
+        createUser(formData, passWordRepeat)
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -109,7 +112,7 @@ function Register() {
                 })
                 break;
             
-            default:
+            default: setPassWordRepeat(e.target.value)
                 break;
         }
     }
@@ -143,8 +146,9 @@ function Register() {
                     </div>
                     <div className="form__elem">
                         <label htmlFor="confirmPassword" className={isSelected.confirmpassword ? "form__elem--selected" : ""}>Confirmer le mot de passe</label>
-                        <input type="password" name="confirmPassword" id="confirmPassword" onClick={handleClickConfirmPassword} />
+                        <input type="password" name="confirmPassword" id="confirmPassword" onClick={handleClickConfirmPassword} onChange={handleChange}/>
                     </div>
+                    <input type="submit" value="S'inscrire" />
                 </form>
 
             </div>
