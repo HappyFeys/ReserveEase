@@ -91,6 +91,26 @@
     <pre><code>{ “message”: “Not logged in” }</code></pre>
     </div>
     <!-- ----------------------------------------------------------------------------------- -->
+    <button class="collapsible">Register</button>
+    <div class="content">
+        <p>Endpoint: <code>POST /auth/register</code></p>
+        <p>Description: Registers a new user.</p>
+        <h3>Request Body</h3>
+        <pre>
+                    <code>{
+            "email": "string",
+            "firstname": "string",
+            "lastname": "string",
+            "password": "string",
+            "phonenumber": "string"
+            }</code></pre>
+        <h3>Responses</h3>
+        <p><strong>200 OK</strong> - Registration successful</p>
+        <pre><code>{ "message": "Registration successful" }</code></pre>
+        <p><strong>400 Bad Request</strong> - Email already in use</p>
+        <pre><code>{ "message": "Email already in use" }</code></pre>
+    </div>
+    <!-- ----------------------------------------------------------------------------------- -->
     <button class="collapsible">Connexion WebSocket</button>
     <div class="content">
         <h2>Connexion WebSocket</h2>
