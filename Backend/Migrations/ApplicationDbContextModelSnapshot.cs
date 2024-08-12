@@ -81,7 +81,7 @@ namespace Booking.Migrations
                             Filterhistory = "[]",
                             Firstname = "adem",
                             Lastname = "Een",
-                            Password = "admin123",
+                            Password = "$2a$10$KP4gR9lnF3ToySGyEHS7C.qdCV9aMwMKmShvh2w.8DUUscw2VfLfO",
                             Phonenumber = "+32492201522",
                             Picture = "",
                             Role = 1
