@@ -66,9 +66,12 @@
         <p>Description: Authenticates a user and creates a session.</p>
         <h3>Request Body</h3>
         <pre>
-                                                                    <code>{
-"username": "string",
-"password": "string"}</code></pre>
+<code>
+{
+"email": "string",
+"password": "string"
+}
+</code></pre>
 <h3>Responses</h3>
 <p><strong>200 OK</strong> - Login successful</p>
 <pre><code>{ “message”: “Login successful” }</code></pre>
@@ -97,18 +100,40 @@
         <p>Description: Registers a new user.</p>
         <h3>Request Body</h3>
         <pre>
-                    <code>{
+            <code>
+                                                                                                                                    {
             "email": "string",
             "firstname": "string",
             "lastname": "string",
             "password": "string",
             "phonenumber": "string"
-            }</code></pre>
+            }
+            </code></pre>
         <h3>Responses</h3>
         <p><strong>200 OK</strong> - Registration successful</p>
         <pre><code>{ "message": "Registration successful" }</code></pre>
         <p><strong>400 Bad Request</strong> - Email already in use</p>
         <pre><code>{ "message": "Email already in use" }</code></pre>
+    </div>
+    <!-- ----------------------------------------------------------------------------------- -->
+    <button class="collapsible">Verify Digicode</button>
+    <div class="content">
+        <p>Endpoint: <code>POST /auth/verify-digicode</code></p>
+        <p>Description: Verifies the digicode and updates the user's role if the code is correct.</p>
+        <h3>Request Body</h3>
+        <pre>
+                <code>
+                                {
+                    "digicode": "string"
+                    }
+                </code></pre>
+        <h3>Responses</h3>
+        <p><strong>200 OK</strong> - Role updated successfully</p>
+        <pre><code>{ "message": "Role updated successfully" }</code></pre>
+        <p><strong>400 Bad Request</strong> - Invalid digicode</p>
+        <pre><code>{ "message": "Invalid digicode" }</code></pre>
+        <p><strong>401 Unauthorized</strong> - Not logged in or invalid user</p>
+        <pre><code>{ "message": "Not logged in" }</code></pre>
     </div>
     <!-- ----------------------------------------------------------------------------------- -->
     <button class="collapsible">Connexion WebSocket</button>
