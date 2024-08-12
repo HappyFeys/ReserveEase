@@ -1,0 +1,32 @@
+.nav{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    height: 75px;
+    width: 100%;
+    padding: 0 20px;
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    background-color: #fff;
+    a{
+        text-decoration: none;
+        color: var(--Onyx);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &:hover{
+            color: var(--CeladonBlue);
+        }
+        img{
+            width: 30px;
+            transition: transform 0.3s ease-in-out;
+            &:hover{
+                transform: scale(110%);
+                filter: invert(30%) sepia(80%) saturate(500%) hue-rotate(150deg);
+            }
+        }
+    }
+    
+}

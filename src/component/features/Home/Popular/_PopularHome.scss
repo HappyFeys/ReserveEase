@@ -1,0 +1,95 @@
+.popular{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    .popular__header{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 20px;
+        h2{
+            font-size: 20px;
+            color: var(--Onyx);
+        }
+        a{
+            text-decoration: none;
+            color: var(--CeladonBlue);
+        }
+    }
+    .popular__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .popular__card{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--Onyx);
+            box-shadow: 10px 10px 15px -3px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+            &:hover{
+                transform: scale(102%);
+            }            
+            &:last-child{
+                margin-bottom: 100px;
+            }
+            img{
+                width: 150px;
+                height: auto;
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+            .card--left{
+                display: flex;
+                .popular__description{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .popular__ville{
+                        font-weight: var(--SemiBold);
+                        font-size: 20px;
+                    }
+                    .popular__pays{
+                        display: flex;
+                        img{
+                            width: 20px;
+                            height: 20px;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+            
+            .popular__rating{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                padding-top: 20px;
+                .rating{
+                    display: flex;
+                }
+                .prix{
+                    font-weight: var(--SemiBold);
+                    font-size: 20px;
+                    color: var(--CeladonBlue);
+                    margin-top: 25px;
+                }
+                img{
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 0;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
