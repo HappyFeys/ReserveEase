@@ -1,0 +1,23 @@
+.filter{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    height: 75px;
+    width: 100%;
+    padding: 0 10px;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    .filter__item{
+        width: fit-content;
+        height: fit-content;
+        padding: 5px 10px;
+        border: 1px solid var(--Manatee);
+        color: var(--AuroMetalSaurus);
+        border-radius: 10px;
+    }
+}

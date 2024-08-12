@@ -1,8 +1,13 @@
 @import "footer";
 @import "main";
 @import "header";
-@import "nav";
 @import "scroll";
-@import "onboarding";
-@import "signin";
-@import "register";
+@import "./../../../src/pages/Onboarding/onboarding";
+@import "./../../../src/pages/Connexion/signin";
+@import "./../../../src/pages/Connexion/register";
+@import "./../../../src/component/features/Home/Header/HeaderHome";
+@import "./../../../src/component/features/Home/Filters/filterHome";
+@import "./../../../src/component/features/Home/Hero/Hero";
+@import "./../../../src/pages/Home/Home";
+@import "./../../../src/component/features/Home/Popular/PopularHome";
+@import "./../../../src/component/layout/Navigation/NavBar";

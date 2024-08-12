@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SignUpHeader from "../component/features/SignUp/SignUpHeader";
+import SignUpHeader from "./../../component/features/SignUp/SignUpHeader";
 import { useState } from "react";
 
 

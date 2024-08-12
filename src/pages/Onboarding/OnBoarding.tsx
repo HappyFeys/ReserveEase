@@ -1,7 +1,7 @@
 import { useState } from "react";
-import imgOnboard from "./../../src/assets/img/beach-onboard.jpg";
-import StepOne from "../component/features/onBoarding/StepOne";
-import StepTwo from "../component/features/onBoarding/StepTwo";
+import imgOnboard from "./../../../src/assets/img/beach-onboard.jpg";
+import StepOne from "./../../component/features/onBoarding/StepOne";
+import StepTwo from "./../../component/features/onBoarding/StepTwo";
 
 function OnBoarding() {
 

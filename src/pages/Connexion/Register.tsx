@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import SignUpHeader from "../component/features/SignUp/SignUpHeader";
-import Button from "../component/common/Button/Button";
-import { useEffect, useState } from "react";
+import SignUpHeader from "./../../component/features/SignUp/SignUpHeader";
+import Button from "../../component/common/Button/Button";
+import {  useState } from "react";
 
 function Register() {
 
@@ -13,8 +13,6 @@ function Register() {
         password: false,
         confirmpassword: false
     })
-
-    const [defaulttype, setDefaultType] = useState("default")
 
     const handleClickEmail = () => {
         setIsSelected({
@@ -58,17 +56,7 @@ function Register() {
         })
     }
 
-    useEffect(()=>{
-        const selectElement = document.querySelector('#type') as HTMLSelectElement
 
-        const handleChange = () => {
-            selectElement.value==="default" ? selectElement.classList.add("default") : selectElement.classList.remove("default");
-        }
-
-        selectElement.addEventListener('change', handleChange)
-
-        return () => selectElement.removeEventListener('change', handleChange)
-    }, [])
 
     return (
         <div className="signUp">
@@ -101,11 +89,11 @@ function Register() {
                         <label htmlFor="confirmPassword" className={isSelected.confirmpassword ? "form__elem--selected" : ""}>Confirmer le mot de passe</label>
                         <input type="password" name="confirmPassword" id="confirmPassword" onClick={handleClickConfirmPassword}/>
                     </div>
-                    <select name="type" id="type" className={`form__elem--select ${defaulttype === "default" ? "default" : ""}`} value={defaulttype} onChange={(e) => setDefaultType(e.target.value)}>
+                    {/* <select name="type" id="type" className={`form__elem--select ${defaulttype === "default" ? "default" : ""}`} value={defaulttype} onChange={(e) => setDefaultType(e.target.value)}>
                         <option value="default" defaultChecked disabled>Vous êtes un ...</option>
                         <option value="client">Voyageur</option>
                         <option value="owner">Propriétaire</option>
-                    </select>
+                    </select> */}
                 </form>
 
             </div>
