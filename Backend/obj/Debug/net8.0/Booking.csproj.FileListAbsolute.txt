@@ -106,3 +106,7 @@ C:\Users\Nathanaël\Documents\Formation\ReserveEase\Backend\obj\Debug\net8.0\Boo
 C:\Users\Nathanaël\Documents\Formation\ReserveEase\Backend\obj\Debug\net8.0\Booking.genruntimeconfig.cache
 C:\Users\Nathanaël\Documents\Formation\ReserveEase\Backend\obj\Debug\net8.0\ref\Booking.dll
 C:\Users\Nathanaël\Documents\Formation\ReserveEase\Backend\bin\Debug\net8.0\BCrypt.Net.dll
+C:\Users\Nathanaël\Documents\Formation\ReserveEase\Backend\bin\Debug\net8.0\MailKit.dll
+C:\Users\Nathanaël\Documents\Formation\ReserveEase\Backend\bin\Debug\net8.0\MimeKit.dll
+C:\Users\Nathanaël\Documents\Formation\ReserveEase\Backend\bin\Debug\net8.0\NETCore.MailKit.dll
+C:\Users\Nathanaël\Documents\Formation\ReserveEase\Backend\bin\Debug\net8.0\BouncyCastle.Crypto.dll
