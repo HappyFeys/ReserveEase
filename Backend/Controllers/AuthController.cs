@@ -83,7 +83,7 @@ public class AuthController : ControllerBase
             Picture = ""
         };
 
-        // Mail.Send(new SendTo(user.Firstname, user.Email), "test", user.Digicode);
+        Mail.Send(new SendTo(user.Firstname, user.Email), "test", user.Digicode);
 
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
