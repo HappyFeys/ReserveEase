@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 import SignUpHeader from "./../../component/features/SignUp/SignUpHeader";
 import Button from "../../component/common/Button/Button";
-import {  useState } from "react";
+import {  useState, useRef } from "react";
+import { createUser } from "../../utils/Connexion/register.service";
 
 function Register() {
+    const [formData, setFormData] = useState({
+        email: "",
+        firstname: "",
+        lastname: "",
+        phonenumber: "",
+        password: ""
+    })
 
     const [isSelected, setIsSelected] = useState({
         email: false,
@@ -13,6 +21,8 @@ function Register() {
         password: false,
         confirmpassword: false
     })
+
+    const formRef = useRef<HTMLFormElement>(null);
 
     const handleClickEmail = () => {
         setIsSelected({
@@ -56,50 +66,91 @@ function Register() {
         })
     }
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        createUser(formData)
+    }
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        })
+
+        switch (e.target.name) {
+            case "email":
+                setFormData({
+                    ...formData,
+                    email: e.target.value
+                })
+                break;
+            case "firstName":
+                setFormData({
+                    ...formData,
+                    firstname: e.target.value
+                })
+                break;
+            case "lastName":
+                setFormData({
+                    ...formData,
+                    lastname: e.target.value
+                })
+                break;
+            case "phone":
+                setFormData({
+                    ...formData,
+                    phonenumber: e.target.value
+                })
+                break;
+            case "password":
+                setFormData({
+                    ...formData,
+                    password: e.target.value
+                })
+                break;
+            
+            default:
+                break;
+        }
+    }
 
     return (
         <div className="signUp">
             <div className="signUp__form">
                 <SignUpHeader>Bienvenue ! Crée ton nouveau compte.</SignUpHeader>
-                <form action="" method="post">
+                <form method="post" onSubmit={handleSubmit} ref={formRef}>
                     <div className="form__elem">
                         <label htmlFor="email" className={isSelected.email ? "form__elem--selected" : ""}>Email</label>
-                        <input type="email" name="email" id="email" onClick={handleClickEmail}/>
+                        <input type="email" name="email" id="email" onClick={handleClickEmail} onChange={handleChange}/>
                     </div>
                     <div className="form__elem--double">
                         <div className="double">
                             <label htmlFor="firstName" className={isSelected.firstname ? "form__elem--selected" : ""}>Prénom</label>
-                            <input type="text" name="firstName" id="firstName" onClick={handleClickFirstname}/>
+                            <input type="text" name="firstName" id="firstName" onClick={handleClickFirstname} onChange={handleChange}/>
                         </div>
                         <div className="double">
                             <label htmlFor="lastName" className={isSelected.lastname ? "form__elem--selected" : ""}>Nom</label>
-                            <input type="text" name="lastName" id="lastName" onClick={handleClickLastname}/>
+                            <input type="text" name="lastName" id="lastName" onClick={handleClickLastname} onChange={handleChange}/>
                         </div>
                     </div>
                     <div className="form__elem">
                         <label htmlFor="phone" className={isSelected.phone ? "form__elem--selected" : ""}>Téléphone</label>
-                        <input type="text" name="phone" id="phone" onClick={handleClickPhone}/>
+                        <input type="phone" name="phone" id="phone" onClick={handleClickPhone} onChange={handleChange}/>
                     </div>
                     <div className="form__elem">
                         <label htmlFor="password" className={isSelected.password ? "form__elem--selected" : ""}>Mot de passe</label>
-                        <input type="password" name="password" id="password" onClick={handleClickPassword}/>
+                        <input type="password" name="password" id="password" onClick={handleClickPassword} onChange={handleChange}/>
                     </div>
                     <div className="form__elem">
                         <label htmlFor="confirmPassword" className={isSelected.confirmpassword ? "form__elem--selected" : ""}>Confirmer le mot de passe</label>
-                        <input type="password" name="confirmPassword" id="confirmPassword" onClick={handleClickConfirmPassword}/>
+                        <input type="password" name="confirmPassword" id="confirmPassword" onClick={handleClickConfirmPassword} />
                     </div>
-                    {/* <select name="type" id="type" className={`form__elem--select ${defaulttype === "default" ? "default" : ""}`} value={defaulttype} onChange={(e) => setDefaultType(e.target.value)}>
-                        <option value="default" defaultChecked disabled>Vous êtes un ...</option>
-                        <option value="client">Voyageur</option>
-                        <option value="owner">Propriétaire</option>
-                    </select> */}
                 </form>
 
             </div>
             <div className="signUp__btn">
                 <p className="signUp__text">Tu as déjà un compte ? <Link to="/signin">Connexion</Link></p>
-                <Button textColors="white" bgColors="var(--CeladonBlue)">S'inscrire</Button>
+                <Button textColors="white" bgColors="var(--CeladonBlue)" onClick={() => formRef.current?.submit()}>S'inscrire</Button>
             </div>
         </div>
     );
