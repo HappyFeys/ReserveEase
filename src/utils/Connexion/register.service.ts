@@ -28,7 +28,7 @@ const validatePasswordRepeat = (password: string, passwordRepeat: string) => {
     return password === passwordRepeat;
 };
 
-export const createUser = async (formData : UserRegister, passwordRepeat:string) => {
+export const createUser = async (formData : UserRegister, passwordRepeat:string, navigate : Function) => {
     if (
         validateLastname(formData.lastname) &&
         validateFirstname(formData.firstname) &&
@@ -55,6 +55,7 @@ export const createUser = async (formData : UserRegister, passwordRepeat:string)
         const data = await response.json();
         console.log(data.message);
         console.log(data)
+        navigate('/verification')
 
         } catch (error: any) {
             console.error('Error creating user:', error);

@@ -5,6 +5,7 @@ import OnBoarding from './pages/Onboarding/OnBoarding'
 import Register from './pages/Connexion/Register'
 import SignUp from './pages/Connexion/SignUp'
 import Home from './pages/Home/Home'
+import Verification from './pages/Connexion/Verification'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: '/home',
     element: <Home />,
+  },
+  {
+    path: '/verification',
+    element: <Verification />,
   }
 ])
 

@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SignUpHeader from "./../../component/features/SignUp/SignUpHeader";
-import Button from "../../component/common/Button/Button";
 import {  useState, useRef } from "react";
 import { createUser } from "../../utils/Connexion/register.service";
 
@@ -14,6 +13,8 @@ function Register() {
     })
 
     const [passWordRepeat, setPassWordRepeat] = useState("");
+
+    const navigate = useNavigate()
 
     const [isSelected, setIsSelected] = useState({
         email: false,
@@ -70,7 +71,7 @@ function Register() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        createUser(formData, passWordRepeat)
+        createUser(formData, passWordRepeat, navigate)
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

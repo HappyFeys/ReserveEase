@@ -3,8 +3,7 @@ import { validateEmail, validatePassword } from "./register.service";
 
 const apiURL = import.meta.env.VITE_API_URL;
 
-
-export const userLogin = async ( formData : UserLogin ) => {
+export const userLogin = async ( formData : UserLogin, navigate : Function ) => {
     if (
         validateEmail(formData.email) &&
         validatePassword(formData.password)
@@ -20,6 +19,7 @@ export const userLogin = async ( formData : UserLogin ) => {
             const data = await response.json();
             console.log(data.message);
             console.log(data)
+            navigate('/verification')
         } catch (error: any) {
             console.error('Error creating user:', error);
             if (error.response) {

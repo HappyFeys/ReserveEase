@@ -18,7 +18,7 @@ public static class Mail
 
         using (var client = new SmtpClient())
         {
-            //client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+            client.ServerCertificateValidationCallback = (s, c, h, e) => true;
             client.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls );
             client.Authenticate("nathanaelamd@gmail.com", "ehcd mfpe grlq tlqi");
             client.Send(message);
