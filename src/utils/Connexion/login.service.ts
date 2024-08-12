@@ -1,13 +1,16 @@
 import { UserLogin } from "../../types/user.type";
 import { validateEmail, validatePassword } from "./register.service";
 
+const apiURL = import.meta.env.VITE_API_URL;
+
+
 export const userLogin = async ( formData : UserLogin ) => {
     if (
         validateEmail(formData.email) &&
         validatePassword(formData.password)
     ) {
         try {
-            const response = await fetch('http://localhost:5001/auth/register', {
+            const response = await fetch(`${apiURL}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

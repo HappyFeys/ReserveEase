@@ -1,5 +1,7 @@
 import { UserRegister} from "../../types/user.type";
 
+const apiURL = import.meta.env.VITE_API_URL;
+
 const validateLastname = (lastName: string) => {
     return lastName.length > 2;
 };
@@ -27,7 +29,6 @@ const validatePasswordRepeat = (password: string, passwordRepeat: string) => {
 };
 
 export const createUser = async (formData : UserRegister, passwordRepeat:string) => {
-    console.log("avant verif");
     if (
         validateLastname(formData.lastname) &&
         validateFirstname(formData.firstname) &&
@@ -36,9 +37,9 @@ export const createUser = async (formData : UserRegister, passwordRepeat:string)
         validatePassword(formData.password) &&
         validatePasswordRepeat(formData.password, passwordRepeat!)
     ) {
-        console.log("je rentre ici");
+        console.log("Validation front done");
         try{
-            const response = await fetch('http://localhost:5001/auth/register', {
+            const response = await fetch(`${apiURL}/auth/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

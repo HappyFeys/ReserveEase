@@ -70,7 +70,6 @@ function Register() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("je submit mon formulaire");
         createUser(formData, passWordRepeat)
     }
 
@@ -148,14 +147,11 @@ function Register() {
                         <label htmlFor="confirmPassword" className={isSelected.confirmpassword ? "form__elem--selected" : ""}>Confirmer le mot de passe</label>
                         <input type="password" name="confirmPassword" id="confirmPassword" onClick={handleClickConfirmPassword} onChange={handleChange}/>
                     </div>
-                    <input type="submit" value="S'inscrire" />
+                    <input type="submit" value="S'inscrire" className="form__elem--submit" />
                 </form>
 
             </div>
-            <div className="signUp__btn">
-                <p className="signUp__text">Tu as déjà un compte ? <Link to="/signin">Connexion</Link></p>
-                <Button textColors="white" bgColors="var(--CeladonBlue)" onClick={() => formRef.current?.submit()}>S'inscrire</Button>
-            </div>
+            <p className="signUp__text">Tu as déjà un compte ? <Link to="/signin">Connexion</Link></p>
         </div>
     );
 }
