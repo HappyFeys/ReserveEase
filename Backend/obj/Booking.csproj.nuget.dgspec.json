@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\happy\\becode\\ReserveEase\\ReserveEase\\backend\\Booking.csproj": {}
+    "C:\\Users\\Nathanaël\\Documents\\Formation\\ReserveEase\\Backend\\Booking.csproj": {}
   },
   "projects": {
-    "C:\\Users\\happy\\becode\\ReserveEase\\ReserveEase\\backend\\Booking.csproj": {
+    "C:\\Users\\Nathanaël\\Documents\\Formation\\ReserveEase\\Backend\\Booking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\happy\\becode\\ReserveEase\\ReserveEase\\backend\\Booking.csproj",
+        "projectUniqueName": "C:\\Users\\Nathanaël\\Documents\\Formation\\ReserveEase\\Backend\\Booking.csproj",
         "projectName": "Booking",
-        "projectPath": "C:\\Users\\happy\\becode\\ReserveEase\\ReserveEase\\backend\\Booking.csproj",
-        "packagesPath": "C:\\Users\\happy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\happy\\becode\\ReserveEase\\ReserveEase\\backend\\obj\\",
+        "projectPath": "C:\\Users\\Nathanaël\\Documents\\Formation\\ReserveEase\\Backend\\Booking.csproj",
+        "packagesPath": "C:\\Users\\Nathanaël\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nathanaël\\Documents\\Formation\\ReserveEase\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\happy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nathanaël\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
