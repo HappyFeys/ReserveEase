@@ -21,14 +21,14 @@ public class ApplicationDbContext : DbContext
 public class User
 {
     public int Id { get; set; }
-    public string Email { get; set; }
-    public string Firstname { get; set; }
-    public string Lastname { get; set; }
-    public string Phonenumber { get; set; }
+    public string Email { get; set; } = "";
+    public string Firstname { get; set; } = "";
+    public string Lastname { get; set; } = "";
+    public string Phonenumber { get; set; } = "";
     public DateTime Birthday { get; set; }
-    public string Password { get; set; }
-    public string Picture { get; set; }
-    public string Digicode { get; set; }
+    public string Password { get; set; } = "";
+    public string Picture { get; set; } = "";
+    public string Digicode { get; set; } = "";
     public int Role { get; set; }
     public List<Filter> Filterhistory { get; set; } = new List<Filter>();
 }

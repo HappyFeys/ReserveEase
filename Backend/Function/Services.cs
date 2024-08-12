@@ -31,6 +31,17 @@ static public class ServiceManager
                 httpsOptions.SslProtocols = System.Security.Authentication.SslProtocols.Tls12;
             });
         });
+
+        builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:5173")
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
     }
 
     static public void UseController(WebApplication app)
@@ -45,6 +56,8 @@ static public class ServiceManager
         app.UseStaticFiles();
 
         app.UseRouting();
+
+        app.UseCors("AllowSpecificOrigin");
 
         app.UseAuthentication();
         app.UseAuthorization();
