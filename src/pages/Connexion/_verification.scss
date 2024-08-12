@@ -1,0 +1,46 @@
+.verification{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    .signup__header--logo{
+        margin: 0 auto;
+    }
+    h1{
+        text-align: center;
+        color: var(--Onyx);
+    }
+    p{
+        margin-bottom: 20px;
+        color: var(--AuroMetalSaurus);
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        input{
+            width: 100%;
+            height: 60px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            margin: 20px 0;
+            text-indent: 20px;
+            font-size: 14px;
+        }
+        .btnSubmit{
+            margin-top: 20px;
+            width: 75%;
+            height: 50px;
+            font-size: 18px;
+            padding: 8px;
+            border-radius: 10px;
+            border: 1px solid var(--CeladonBlue);
+            margin-bottom: 30px;
+            background-color: var(--CeladonBlue);
+            color: #fff;
+            text-indent: 0;
+        }
+    }
+}

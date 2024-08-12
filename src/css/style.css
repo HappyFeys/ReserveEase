@@ -1167,6 +1167,53 @@ body {
   filter: invert(30%) sepia(80%) saturate(500%) hue-rotate(150deg);
 }
 
+.verification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.verification .signup__header--logo {
+  margin: 0 auto;
+}
+.verification h1 {
+  text-align: center;
+  color: var(--Onyx);
+}
+.verification p {
+  margin-bottom: 20px;
+  color: var(--AuroMetalSaurus);
+}
+.verification form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.verification form input {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  margin: 20px 0;
+  text-indent: 20px;
+  font-size: 14px;
+}
+.verification form .btnSubmit {
+  margin-top: 20px;
+  width: 75%;
+  height: 50px;
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--CeladonBlue);
+  margin-bottom: 30px;
+  background-color: var(--CeladonBlue);
+  color: #fff;
+  text-indent: 0;
+}
+
 html {
   height: 100%;
   background: #fff;
