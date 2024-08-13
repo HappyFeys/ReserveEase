@@ -1184,6 +1184,7 @@ body {
 .verification p {
   margin-bottom: 20px;
   color: var(--AuroMetalSaurus);
+  text-align: center;
 }
 .verification form {
   display: flex;
