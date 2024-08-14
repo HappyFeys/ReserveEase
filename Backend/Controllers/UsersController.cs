@@ -35,6 +35,13 @@ public class UsersController : ControllerBase
             return Unauthorized(new { message = "Invalid role", error = 3 });
         }
 
-        return Ok(new { message = "Send home", error = 0, Filter = Filters.GetAllFilters() });
+        return Ok(new
+        {
+            message = "Send home",
+            error = 0,
+            Filter = Filters.GetAllFilters(),
+            LogementRecomanded = new Details[5],
+            LogementList = new List<Details>()
+        });
     }
 }
