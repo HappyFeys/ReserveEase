@@ -30,5 +30,5 @@ public class User
     public string Picture { get; set; } = "";
     public string Digicode { get; set; } = "";
     public int Role { get; set; }
-    public List<Filter> Filterhistory { get; set; } = new List<Filter>();
+    public List<string> Filterhistory { get; set; } = new List<string>();
 }
