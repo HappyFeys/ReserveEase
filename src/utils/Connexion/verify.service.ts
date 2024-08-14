@@ -8,7 +8,7 @@ export const isValidFourDigitCode = (code: string): boolean => {
 }
 
 
-export const verifyDigicode = async (code: Digicode) => {
+export const verifyDigicode = async (code: Digicode, navigate : Function) => {
     if (isValidFourDigitCode(code.digicode)) {
         try {
             console.log(code)
@@ -17,13 +17,14 @@ export const verifyDigicode = async (code: Digicode) => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ code }),
+                body: JSON.stringify(code),
                 credentials: 'include'
             })
 
             const data = await response.json();
             console.log(data.message);
             console.log(data);
+            navigate('/home')
         } catch (error: any) {
             console.log('Error verifying code:', error);
         }

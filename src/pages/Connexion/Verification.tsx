@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { verifyDigicode, isValidFourDigitCode } from "../../utils/Connexion/verify.service";
 import SignUpHeader from "../../component/features/SignUp/SignUpHeader";
+import { useNavigate } from "react-router-dom";
 
 function Verification() {
 
@@ -8,10 +9,12 @@ function Verification() {
         digicode:""
     });
 
+    const navigate = useNavigate()
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (isValidFourDigitCode(code.digicode)) {
-            verifyDigicode(code)
+            verifyDigicode(code, navigate)
         } else console.log("Error validation code, not a 4 digit number");
     };
 
