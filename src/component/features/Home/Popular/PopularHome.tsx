@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import star from "./../../../../../src/assets/icons/star.svg"
 import point from "./../../../../../src/assets/icons/map-point.svg"
+import { Logement } from "../../../../types/home.type";
 
 function PopularHome() {
+// function PopularHome({logements} : Logement[]) {
 
     const logements = [
         {

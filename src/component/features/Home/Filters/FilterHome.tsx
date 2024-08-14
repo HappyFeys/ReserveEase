@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
+import { Filters } from "../../../../types/home.type";
 
+// function FilterHome({filters} : Filters ) {
 function FilterHome() {
 
     const filters = {
