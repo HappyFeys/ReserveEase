@@ -1,0 +1,80 @@
+.booking__details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+    .back{
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    h1{
+        font-size: 24px;
+        color: var(--CeladonBlue);
+        margin-bottom: 60px;
+    }
+    img{
+        width: 25px;
+    }
+    .booking__details__form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        width: 90%;
+        margin-bottom: 10px;
+        background-color: #fff;
+        padding: 20px 10px;
+        border-radius: 10px;
+        .booking__details__form--elem{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            border-radius: 10px;
+            background-color: #f3f4f6;
+            padding: 5px;
+            img{
+                margin-right: 10px;
+            }
+            p, label{
+                color: var(--Onyx);
+            }
+            input{
+                border-radius: 5px;
+                outline: none;
+                border: none;
+                background-color: #fff;
+                padding: 5px;
+                text-indent: 5px;
+            }
+        }
+        .price{
+            margin-left: auto;
+            margin-right: 10px;
+            color: var(--CeladonBlue) !important;
+            font-weight: var(--Medium);
+        }
+        .booking__details__form--elem--total{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 5px;
+            img{
+                margin-right: 10px;
+            }
+        }
+        input[type="submit"]{
+            width: 75%;
+            margin: 0 auto;
+            padding: 8px;
+            border-radius: 10px;
+            border: 1px solid var(--CeladonBlue);
+            color: #fff;
+            background-color: var(--CeladonBlue);
+        }
+    }
+}

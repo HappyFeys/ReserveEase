@@ -1,20 +1,22 @@
 import { useState } from "react";
-import { verifyDigicode, validateCodeDigit } from "../../utils/Connexion/verify.service";
+import { verifyDigicode, isValidFourDigitCode } from "../../utils/Connexion/verify.service";
 import SignUpHeader from "../../component/features/SignUp/SignUpHeader";
 
 function Verification() {
 
-    const [code, setCode] = useState("");
+    const [code, setCode] = useState({
+        digicode:""
+    });
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (validateCodeDigit(code)) {
+        if (isValidFourDigitCode(code.digicode)) {
             verifyDigicode(code)
         } else console.log("Error validation code, not a 4 digit number");
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setCode(e.target.value);
+        setCode({digicode: e.target.value});
     }
 
     return (
