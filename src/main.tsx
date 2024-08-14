@@ -6,6 +6,8 @@ import Register from './pages/Connexion/Register'
 import SignUp from './pages/Connexion/SignUp'
 import Home from './pages/Home/Home'
 import Verification from './pages/Connexion/Verification'
+import Booking from './pages/Booking/Booking'
+import BookingDetails from './pages/Booking/BookingDetails'
 
 const router = createBrowserRouter([
   {
@@ -27,7 +29,15 @@ const router = createBrowserRouter([
   {
     path: '/verification',
     element: <Verification />,
-  }
+  },
+  {
+    path: '/booking/:id',
+    element: <Booking />,
+  },
+  {
+    path: '/reserver/:id',
+    element: <BookingDetails />,
+  },
 ])
 
 

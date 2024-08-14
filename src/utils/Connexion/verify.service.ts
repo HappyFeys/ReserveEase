@@ -1,17 +1,17 @@
+import { Digicode } from "../../types/user.type";
+
 const apiURL = import.meta.env.VITE_API_URL;
 
-const validateCode = (code: string) => {
-    return code.length === 4;
+export const isValidFourDigitCode = (code: string): boolean => {
+  const fourDigitCodeRegex = /^\d{4}$/;
+  return fourDigitCodeRegex.test(code);
 }
 
-export const validateCodeDigit = (code: string) => {
-    const codeRegex = /^\d{4}$/
-    return codeRegex.test(code)
-}
 
-export const verifyDigicode = async (code: string) => {
-    if (validateCode(code)) {
+export const verifyDigicode = async (code: Digicode) => {
+    if (isValidFourDigitCode(code.digicode)) {
         try {
+            console.log(code)
             const response = await fetch(`${apiURL}/auth/verify-digicode`, {
                 method: 'POST',
                 headers: {
@@ -27,5 +27,5 @@ export const verifyDigicode = async (code: string) => {
         } catch (error: any) {
             console.log('Error verifying code:', error);
         }
-    }
+    } else console.log("Code invalide");
 }
