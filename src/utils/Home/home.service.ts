@@ -11,22 +11,25 @@ export const getHome = async (navigate : Function) => {
             credentials: 'include',
         });
         const data = await response.json();
-        return data;
-    } catch (error: any) {
-        console.log('Error getting home:', error);
-        switch (error.error) {
+        switch (data.error) {
             case 1:
-                navigate('/login')
+                console.log(data.message)
+                navigate('/signin')
                 break;
             case 2:
+                console.log(data.message)
                 navigate('/register')
                 break;
             case 3:
+                console.log(data.message)
                 navigate('/verification')
                 break;
         
-            default: console.log("Error", error);
+            default: console.log("Error", data.message);
                 break;
         }
+        return data;
+    } catch (error: any) {
+        console.log('Error getting home:', error);
     }
 }

@@ -20,4 +20,14 @@ header{
         width: 30px;
         cursor: pointer;
     }
+    .header__search{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+            font-size: 10px;
+            color: var(--CeladonBlue);
+            margin-bottom: 10px;
+        }
+    }
 }
