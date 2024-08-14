@@ -1,13 +1,14 @@
 import favourite from "./../../../../../src/assets/icons/favourite.svg"
 import point from "./../../../../../src/assets/icons/map-point.svg"
 import star from "./../../../../../src/assets/icons/star.svg"
-import logoLight from "./../../../../../src/assets/Logo/ReservEase_light.png"
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import { EffectCoverflow, Pagination } from "swiper/modules";
+import { Logement } from "../../../../types/home.type";
 
 
+// function Hero({logements} : Logement[]) {
 function Hero() {
 
     const logements = [
