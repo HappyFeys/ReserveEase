@@ -32,4 +32,3 @@ public class User
     public int Role { get; set; }
     public List<Filter> Filterhistory { get; set; } = new List<Filter>();
 }
-
