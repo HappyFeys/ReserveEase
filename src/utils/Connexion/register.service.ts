@@ -55,7 +55,7 @@ export const createUser = async (formData : UserRegister, passwordRepeat:string,
         const data = await response.json();
         console.log(data.message);
         console.log(data)
-        navigate('/verification')
+        navigate('/home')
 
         } catch (error: any) {
             console.error('Error creating user:', error);
