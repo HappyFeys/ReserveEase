@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 
 [ApiController]
@@ -27,15 +28,27 @@ public class AuthController : ControllerBase
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
         if (user != null && BCrypt.Net.BCrypt.Verify(model.Password, user.Password))
         {
+            Random rand = new Random();
+            string digicode = MathF.Floor((float)rand.NextDouble() * 9.99f)
+                 + "" + MathF.Floor((float)rand.NextDouble() * 9.99f)
+                 + "" + MathF.Floor((float)rand.NextDouble() * 9.99f)
+                 + "" + MathF.Floor((float)rand.NextDouble() * 9.99f);
+
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Role, user.Role.ToString())
+                new Claim(ClaimTypes.Role, user.Role.ToString()),
+                new Claim("Digicode", digicode)
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+
+            Mail.Send(new SendTo(user.Firstname, user.Email), "test", digicode);
+
+            Console.WriteLine("Users digicode without mail: " + digicode);
 
             return Ok(new { message = "Login successful" });
         }
@@ -63,12 +76,6 @@ public class AuthController : ControllerBase
             return BadRequest(new { message = "Email already in use" });
         }
 
-        Random rand = new Random();
-        string digicode = MathF.Floor((float)rand.NextDouble() * 9.99f)
-             + "" + MathF.Floor((float)rand.NextDouble() * 9.99f)
-             + "" + MathF.Floor((float)rand.NextDouble() * 9.99f)
-             + "" + MathF.Floor((float)rand.NextDouble() * 9.99f);
-
         var user = new User
         {
             Email = model.Email,
@@ -77,13 +84,10 @@ public class AuthController : ControllerBase
             Password = BCrypt.Net.BCrypt.HashPassword(model.Password),
             Phonenumber = model.Phonenumber,
 
-            Digicode = digicode,
             Birthday = new DateTime(1999, 1, 1),
-            Role = -1,
+            Role = 0,
             Picture = ""
         };
-
-        Mail.Send(new SendTo(user.Firstname, user.Email), "test", user.Digicode);
 
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
@@ -105,22 +109,23 @@ public class AuthController : ControllerBase
             return Unauthorized(new { message = "Invalid user" });
         }
 
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == emailClaim.Value);
-        if (user == null || user.Role != -1)
-        {
-            return Unauthorized(new { message = "Invalid user or role" });
-        }
-
-        if (user.Digicode != model.Digicode)
+        var digicodeClaim = User.Claims.FirstOrDefault(c => c.Type == "Digicode");
+        if (digicodeClaim == null || digicodeClaim.Value != model.Digicode)
         {
             return BadRequest(new { message = "Invalid digicode" });
         }
 
-        user.Role = 0;
-        _context.Users.Update(user);
-        await _context.SaveChangesAsync();
 
-        return Ok(new { message = "Role updated successfully" });
+        var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.Email, emailClaim.Value),
+        new Claim(ClaimTypes.Role, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value ?? ""),
+        new Claim("DigicodeVerified", "true")
+    };
+        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+        return Ok(new { message = "Code is good" });
     }
 }
 

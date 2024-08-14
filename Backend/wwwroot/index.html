@@ -119,22 +119,60 @@
     <button class="collapsible">Verify Digicode</button>
     <div class="content">
         <p>Endpoint: <code>POST /auth/verify-digicode</code></p>
-        <p>Description: Verifies the digicode and updates the user's role if the code is correct.</p>
+        <p>Description: Verifies the digicode and updates the user's session to indicate successful verification.</p>
         <h3>Request Body</h3>
         <pre>
-                <code>
-                                {
+            <code>
+                                                                            {
                     "digicode": "string"
-                    }
-                </code></pre>
+                }
+            </code>
+            </pre>
         <h3>Responses</h3>
-        <p><strong>200 OK</strong> - Role updated successfully</p>
-        <pre><code>{ "message": "Role updated successfully" }</code></pre>
+        <p><strong>200 OK</strong> - Code is good</p>
+        <pre><code>{ "message": "Code is good" }</code></pre>
         <p><strong>400 Bad Request</strong> - Invalid digicode</p>
         <pre><code>{ "message": "Invalid digicode" }</code></pre>
         <p><strong>401 Unauthorized</strong> - Not logged in or invalid user</p>
         <pre><code>{ "message": "Not logged in" }</code></pre>
     </div>
+    <!-- ----------------------------------------------------------------------------------- -->
+    <button class="collapsible">Get Home</button>
+    <div class="content">
+        <p>Endpoint: <code>GET /users/home</code></p>
+        <p>Description: Retrieves the home data including filters, recommended logements, and the list of all logements.
+            Requires the user to be logged in and have verified their digicode.</p>
+        <h3>Responses</h3>
+        <p><strong>200 OK</strong> - Home data retrieved successfully</p>
+        <pre><code>
+                {
+                    "message": "Send home",
+                    "error": 0,
+                    "Filter": [/* array of filters */],
+                    "LogementRecomanded": [/* array of recommended logements */],
+                    "LogementList": [/* array of all logements */]
+                }
+                    </code></pre>
+        <p><strong>401 Unauthorized</strong> - Not logged in, invalid user, or digicode not verified</p>
+        <pre><code>
+                {
+                    "message": "Not logged in",
+                    "error": 1
+                }
+                {
+                    "message": "Invalid user",
+                    "error": 2
+                }
+                {
+                    "message": "digicode not verified",
+                    "error": 3
+                }
+                    </code></pre>
+    </div>
+    <!-- ----------------------------------------------------------------------------------- -->
+    <!-- ----------------------------------------------------------------------------------- -->
+    <!-- ----------------------------------------------------------------------------------- -->
+    <!-- ----------------------------------------------------------------------------------- -->
     <!-- ----------------------------------------------------------------------------------- -->
     <button class="collapsible">Connexion WebSocket</button>
     <div class="content">

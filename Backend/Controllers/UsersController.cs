@@ -29,10 +29,10 @@ public class UsersController : ControllerBase
             return Unauthorized(new { message = "Invalid user", error = 2 });
         }
 
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == emailClaim.Value);
-        if (user == null || user.Role == -1)
+        var digicodeClaim = User.Claims.FirstOrDefault(c => c.Type == "DigicodeVerified");
+        if (digicodeClaim == null || digicodeClaim.Value != "true")
         {
-            return Unauthorized(new { message = "Invalid role", error = 3 });
+            return Unauthorized(new { message = "digicode not verified", error = 3 });
         }
 
         var logements = LogementService.GetAllLogements(_context);
