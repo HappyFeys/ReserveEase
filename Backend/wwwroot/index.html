@@ -170,6 +170,21 @@
                     </code></pre>
     </div>
     <!-- ----------------------------------------------------------------------------------- -->
+    <button class="collapsible">Get Logement</button>
+    <div class="content">
+        <p>Endpoint: <code>GET /users/logement?id=</code></p>
+        <p>Description: Retrieves the details of a specific logement by its ID. Requires the user to be logged in and have
+            verified their digicode.</p>
+        <h3>Request Parameters</h3>
+        <pre><code> { “id”: “int” } </code></pre>
+        <h3>Responses</h3>
+        <p><strong>200 OK</strong> - Logement found</p>
+        <pre><code> { “message”: “Logement found”, “error”: 0, “Logement”: { /* logement details */ } } </code></pre>
+        <p><strong>401 Unauthorized</strong> - Not logged in, invalid user, or digicode not verified</p>
+        <pre><code> { “message”: “Not logged in”, “error”: 1 } { “message”: “Invalid user”, “error”: 2 } { “message”: “digicode not verified”, “error”: 3 } </code></pre>
+        <p><strong>404 Not Found</strong> - Logement not found</p>
+        <pre><code> { “message”: “Logement not found”, “error”: 4 } </code></pre>
+    </div>
     <!-- ----------------------------------------------------------------------------------- -->
     <!-- ----------------------------------------------------------------------------------- -->
     <!-- ----------------------------------------------------------------------------------- -->

@@ -47,4 +47,38 @@ public class UsersController : ControllerBase
             LogementList = logements
         });
     }
+
+    [HttpGet("logement")]
+    public async Task<IActionResult> GetLogement(int id)
+    {
+        if (User.Identity == null || !User.Identity.IsAuthenticated)
+        {
+            return Unauthorized(new { message = "Not logged in", error = 1 });
+        }
+
+        var emailClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email);
+        if (emailClaim == null)
+        {
+            return Unauthorized(new { message = "Invalid user", error = 2 });
+        }
+
+        var digicodeClaim = User.Claims.FirstOrDefault(c => c.Type == "DigicodeVerified");
+        if (digicodeClaim == null || digicodeClaim.Value != "true")
+        {
+            return Unauthorized(new { message = "digicode not verified", error = 3 });
+        }
+
+        var logement = LogementService.GetLogementById(_context, id);
+        if (logement == null)
+        {
+            return NotFound(new { message = "Logement not found", error = 4 });
+        }
+
+        return Ok(new
+        {
+            message = "Logement found",
+            error = 0,
+            Logement = logement
+        });
+    }
 }
