@@ -33,4 +33,3 @@ public class User
     public List<Filter> Filterhistory { get; set; } = new List<Filter>();
 }
 
-public enum Filter { beach }
