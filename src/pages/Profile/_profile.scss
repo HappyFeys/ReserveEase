@@ -1,0 +1,60 @@
+.profile{
+    width: 100%;
+    .profile__header{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        margin: 15px 0;
+        color: var(--CeladonBlue);
+        position: relative;
+        h1{
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        p{
+            font-size: 10px;
+        }
+    }
+    .profile__person{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 50px;
+        img{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+        p{
+            color: var(--AuroMetalSaurus);
+        }
+    }
+    .profile__edit{
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        width: 90%;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        img{
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        p{
+            color: var(--AuroMetalSaurus);
+        }
+    }
+    a{
+        width: 100%;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+    }
+}

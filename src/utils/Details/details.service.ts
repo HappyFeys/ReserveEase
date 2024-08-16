@@ -1,20 +1,21 @@
-import { ApiResponse } from "../../types/home.type";
+import { ApiResponseDetails } from "../../types/details.type";
 
 const apiURL = import.meta.env.VITE_API_URL;
 
-export const getHome = async (navigate : Function) : Promise<ApiResponse | null > => {
+export const getDetails = async (navigate : Function, idLogement : number)  => {
     try {
-        const response = await fetch(`${apiURL}/users/home`, {
+        const response = await fetch(`${apiURL}/users/logement?id=${idLogement}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
             credentials: 'include',
         });
+        console.log(response);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data : ApiResponse = await response.json()
+        const data : ApiResponseDetails  = await response.json()
         switch (data.error) {
             case 1:
                 console.log(data.message)

@@ -996,6 +996,10 @@ header .header__search p {
   flex-wrap: wrap;
   margin-top: 20px;
 }
+.hero a {
+  text-decoration: none;
+  color: var(--Onyx);
+}
 .hero h2 {
   font-size: 20px;
   margin-right: auto;
@@ -1044,6 +1048,9 @@ header .header__search p {
 }
 .hero .hero__card .hero__card--content .pville {
   font-weight: var(--SemiBold);
+}
+.hero .hero__card .hero__card--price {
+  color: var(--CeladonBlue);
 }
 
 body {
@@ -1512,6 +1519,67 @@ body {
   border: 1px solid var(--CeladonBlue);
   color: #fff;
   background-color: var(--CeladonBlue);
+}
+
+.profile {
+  width: 100%;
+}
+.profile .profile__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  margin: 15px 0;
+  color: var(--CeladonBlue);
+  position: relative;
+}
+.profile .profile__header h1 {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.profile .profile__header p {
+  font-size: 10px;
+}
+.profile .profile__person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+.profile .profile__person img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.profile .profile__person p {
+  color: var(--AuroMetalSaurus);
+}
+.profile .profile__edit {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  width: 90%;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+.profile .profile__edit img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.profile .profile__edit p {
+  color: var(--AuroMetalSaurus);
+}
+.profile a {
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 
 html {
