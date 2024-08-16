@@ -11,7 +11,7 @@ export const getHome = async (navigate : Function) : Promise<ApiResponse | null 
             },
             credentials: 'include',
         });
-        
+        console.log(response);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -33,7 +33,6 @@ export const getHome = async (navigate : Function) : Promise<ApiResponse | null 
             default: console.log("No Error :", data.message);
                 return data;
         }
-        return data
     } catch (error: any) {
         console.log('Error getting home:', error);
         return null

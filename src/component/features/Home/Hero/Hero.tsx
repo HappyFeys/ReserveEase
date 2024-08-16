@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import { Logement } from "../../../../types/home.type";
+import { Link } from "react-router-dom";
 
 interface HeroProps {
   logements: Logement[]
@@ -34,7 +35,7 @@ function Hero({logements} : HeroProps) {
                 className="mySwiper">
 
             {logements.map((logement) => (
-                <SwiperSlide><div key={logement.id} className="hero__card" style={{backgroundImage: `url(./../../../../../src/assets/img/lieu/${logement.imageName})`}}>
+                <SwiperSlide><Link to={`/booking/${logement.id}`}><div key={logement.id} className="hero__card" style={{backgroundImage: `url(./../../../../../src/assets/img/lieu/${logement.imageName})`}}>
                 <img src={favourite} alt="Favoris" className="hero__card--favourite" />
                 <div className="hero__card--content">
                     <div className="hero__card--text">
@@ -46,7 +47,7 @@ function Hero({logements} : HeroProps) {
                         <p className="hero__card--price">{logement.prix}€</p>
                     </div>
                 </div>
-            </div></SwiperSlide>
+            </div></Link></SwiperSlide>
             ))}
       
       

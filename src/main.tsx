@@ -8,6 +8,7 @@ import Home from './pages/Home/Home'
 import Verification from './pages/Connexion/Verification'
 import Booking from './pages/Booking/Booking'
 import BookingDetails from './pages/Booking/BookingDetails'
+import Profile from './pages/Profile/Profile'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
     path: '/reserver/:id',
     element: <BookingDetails />,
   },
+  {
+    path:'/profile',
+    element: <Profile />
+  }
 ])
 
 

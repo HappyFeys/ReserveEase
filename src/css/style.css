@@ -1409,7 +1409,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 60px;
 }
 .booking .booking__details .booking__details--booking .booking__details--booking--price {
   color: var(--AuroMetalSaurus);
