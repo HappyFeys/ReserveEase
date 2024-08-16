@@ -1,11 +1,13 @@
 import profileImg from "./../../../../../src/assets/img/unbgcommeunautre.jpg"
 import searchIcon from "./../../../../../src/assets/icons/loupe.svg"
 import { userLogout } from "../../../../utils/Connexion/logout.service";
+import { useNavigate } from "react-router-dom";
 
 function HeaderHome() {
 
+    const navigate = useNavigate()
     const handleDisconnect = () => {
-        userLogout();
+        userLogout(navigate);
     }
    
 

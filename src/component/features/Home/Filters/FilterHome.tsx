@@ -1,73 +1,11 @@
 import { useEffect, useRef } from "react";
 import { Filters } from "../../../../types/home.type";
 
-// function FilterHome({filters} : Filters ) {
-function FilterHome() {
+interface FilterHomeProps {
+    filters: Filters
+}
 
-    const filters = {
-        localisation: [
-            'Ville', 'Région', 'Pays',
-            'Plages', 'Musées', 'Restaurants',
-            'Stations de métro', 'Bus', 'Gares'
-        ],
-        typeHebergement: [
-            'Appartement',
-            'Maison',
-            'Chambre d’hôtel',
-            'Bungalow',
-            'Villa',
-            'Cabane',
-            'Studio',
-            'Maison de vacances',
-            'Chambre d’hôte'
-        ],
-        equipements: [
-            'Wi-Fi',
-            'Climatisation',
-            'Chauffage',
-            'Cuisine équipée',
-            'Lave-linge',
-            'Sèche-linge',
-            'Télévision',
-            'Parking',
-            'Piscine',
-            'Jacuzzi',
-            'BBQ',
-            'Balcon/Terrasse',
-            'Jardin',
-            'Ascenseur'
-        ],
-        accessibilite: [
-            'Accès aux personnes handicapées',
-            'Équipements pour bébés'
-        ],
-        typeSejour: [
-            'Séjour longue durée',
-            'Séjour de courte durée',
-            'Séjour pour les groupes',
-            'Séjour romantique',
-            'Séjour en famille'
-        ],
-        servicesSupplementaires: [
-            'Petit-déjeuner inclus',
-            'Service de ménage',
-            'Transfert aéroport',
-            'Service de conciergerie',
-            'Animaux acceptés',
-            'Fumeur/non-fumeur'
-        ],
-        confortEtStyle: [
-            'Luxe',
-            'Moderne',
-            'Classique',
-            'Rustique',
-            'Éco-responsable'
-        ],
-        autres: [
-            'Politique d\'annulation',
-            'Offres spéciales' 
-        ]
-    };
+function FilterHome({ filters } : FilterHomeProps ) {
     
     const scrollContainerRef = useRef<HTMLDivElement|null>(null);
 

@@ -3,66 +3,11 @@ import star from "./../../../../../src/assets/icons/star.svg"
 import point from "./../../../../../src/assets/icons/map-point.svg"
 import { Logement } from "../../../../types/home.type";
 
-function PopularHome() {
-// function PopularHome({logements} : Logement[]) {
+interface PopularHomeProps {
+  logements: Logement[]
+}
 
-    const logements = [
-        {
-          id: "1",
-          imageName: "paris.jpg",
-          ville: "Paris",
-          pays: "France",
-          prix: 120,
-          rating: 4.7,
-          description: "Charmant loft au cœur de Paris, à proximité de la Tour Eiffel.",
-          chambres: 2,
-          voyageurs: 4
-        },
-        {
-          id: "2",
-          imageName: "tokyo.png",
-          ville: "Tokyo",
-          pays: "Japon",
-          prix: 80,
-          rating: 4.9,
-          description: "Studio moderne avec vue sur la ville, idéal pour un couple.",
-          chambres: 1,
-          voyageurs: 2
-        },
-        {
-          id: "3",
-          imageName: "ny.jpg",
-          ville: "New York",
-          pays: "États-Unis",
-          prix: 250,
-          rating: 4.8,
-          description: "Penthouse luxueux avec vue sur Central Park.",
-          chambres: 3,
-          voyageurs: 6
-        },
-        {
-          id: "4",
-          imageName: "rome.jpg",
-          ville: "Rome",
-          pays: "Italie",
-          prix: 95,
-          rating: 4.6,
-          description: "Appartement spacieux près du Colisée, parfait pour une famille.",
-          chambres: 2,
-          voyageurs: 5
-        },
-        {
-          id: "5",
-          imageName: "sydney.jpg",
-          ville: "Sydney",
-          pays: "Australie",
-          prix: 300,
-          rating: 4.9,
-          description: "Villa avec piscine et vue sur la plage de Bondi.",
-          chambres: 4,
-          voyageurs: 8
-        }
-      ];
+function PopularHome({logements} : PopularHomeProps) {
 
     return (
         <div className="popular">

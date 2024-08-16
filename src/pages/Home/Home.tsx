@@ -5,27 +5,36 @@ import Hero from "../../component/features/Home/Hero/Hero";
 import PopularHome from "../../component/features/Home/Popular/PopularHome";
 import NavBar from "../../component/layout/Navigation/NavBar";
 import { getHome } from "../../utils/Home/home.service";
+import { useEffect, useState } from "react";
+import { ApiResponse } from "../../types/home.type";
 
 function Home() {
 
-    const navigate = useNavigate()
+    const [homeData, setHomeData] = useState<ApiResponse | null>(null); 
+    const navigate = useNavigate();
 
-    const homeData = getHome(navigate)
-  
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getHome(navigate);
+            setHomeData(data);
+        };
+
+        fetchData();
+    }, [navigate]);
+
+    if (!homeData) {
+        return <div>Loading...</div>;
+    }
+
+    console.log(homeData);
 
     return (
         <>
             <HeaderHome />
-            <FilterHome />
-            <Hero />
-            <PopularHome />
+            <FilterHome filters={homeData.filter}/>
+            <Hero logements={homeData.logementList}/>
+            <PopularHome logements={homeData.logementRecomanded} />
             <NavBar />
-
-            {/* <HeaderHome />
-            <FilterHome filters={homeData}/>
-            <Hero logements={homeData}/>
-            <PopularHome logements={homeData} />
-            <NavBar /> */}
         </>
     );
 }
