@@ -7,10 +7,10 @@ import profile from "./../../../../src/assets/icons/profile.svg"
 function NavBar() {
     return (
         <nav className="nav">
-            <Link to={"/home"} className="home"><img src={home} alt="Home" />Home</Link>
-            <Link to={"/booking"} className="booking"><img src={booking} alt="Booking" />Booking</Link>
-            <Link to={"/discuss"} className="discuss"><img src={discuss} alt="Message" />Message</Link>
-            <Link to={"/profile"} className="profile"><img src={profile} alt="Profil" />Profil</Link>
+            <Link to={"/home"} ><img src={home} alt="Home" />Home</Link>
+            <Link to={"/booking"} ><img src={booking} alt="Booking" />Booking</Link>
+            <Link to={"/discuss"} ><img src={discuss} alt="Message" />Message</Link>
+            <Link to={"/profile"} ><img src={profile} alt="Profil" />Profil</Link>
         </nav>
     );
 }
