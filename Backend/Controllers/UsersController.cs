@@ -20,19 +20,19 @@ public class UsersController : ControllerBase
     {
         if (User.Identity == null || !User.Identity.IsAuthenticated)
         {
-            return Unauthorized(new { message = "Not logged in", error = 1 });
+            return Ok(new { message = "Not logged in", error = 1 });
         }
 
         var emailClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email);
         if (emailClaim == null)
         {
-            return Unauthorized(new { message = "Invalid user", error = 2 });
+            return Ok(new { message = "Invalid user", error = 2 });
         }
 
         var digicodeClaim = User.Claims.FirstOrDefault(c => c.Type == "DigicodeVerified");
         if (digicodeClaim == null || digicodeClaim.Value != "true")
         {
-            return Unauthorized(new { message = "digicode not verified", error = 3 });
+            return Ok(new { message = "digicode not verified", error = 3 });
         }
 
         var logements = LogementService.GetAllLogements(_context);
