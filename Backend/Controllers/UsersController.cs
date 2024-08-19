@@ -81,4 +81,32 @@ public class UsersController : ControllerBase
             Logement = logement
         });
     }
+
+    [HttpGet("filter")]
+    public async Task<IActionResult> GetFilter()
+    {
+        if (User.Identity == null || !User.Identity.IsAuthenticated)
+        {
+            return Ok(new { message = "Not logged in", error = 1 });
+        }
+
+        var emailClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email);
+        if (emailClaim == null)
+        {
+            return Ok(new { message = "Invalid user", error = 2 });
+        }
+
+        var digicodeClaim = User.Claims.FirstOrDefault(c => c.Type == "DigicodeVerified");
+        if (digicodeClaim == null || digicodeClaim.Value != "true")
+        {
+            return Ok(new { message = "digicode not verified", error = 3 });
+        }
+
+        return Ok(new
+        {
+            message = "Send filter",
+            error = 0,
+            Filter = Filters.GetAllFilters()
+        });
+    }
 }
