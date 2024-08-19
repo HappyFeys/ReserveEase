@@ -11,7 +11,6 @@ export const getDetails = async (navigate : Function, idLogement : number)  => {
             },
             credentials: 'include',
         });
-        console.log(response);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

@@ -6,6 +6,7 @@ import favorite from "./../../../src/assets/icons/favouriteProfil.svg"
 import accountSetting from "./../../../src/assets/icons/parameters.svg"
 import NavBar from "../../component/layout/Navigation/NavBar";
 import Back from "../../component/common/Button/Back";
+import add from "./../../../src/assets/icons/add.svg"
 
 
 function Profile() {
@@ -30,6 +31,8 @@ function Profile() {
             <Link to="/profile/edit"><div className="profile__edit"><img src={edit} alt="edit" /><p>Modifier son profil</p></div></Link>
             <Link to="/profile/favorite"><div className="profile__edit"><img src={favorite} alt="favorite" /><p>Vos favoris</p></div></Link>
             <Link to="/profile/edit"><div className="profile__edit"><img src={accountSetting} alt="accountSetting" /><p>Modifier son compte</p></div></Link>
+            <Link to="/profile/logement"><div className="profile__edit"><img src={add} alt="Add a logement" /><p>Ajouter un logement</p></div></Link>
+
             <NavBar />
         </div>
     );
