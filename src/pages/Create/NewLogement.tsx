@@ -8,6 +8,7 @@ import { CreateLogementType } from "../../types/createLogement.type";
 import VerificationLogement from "./VerificationLogement";
 import { createLogement } from "../../utils/CreationLogement/creationLogement.service";
 import Thx from "./Thx";
+import Back from "../../component/common/Button/Back";
 
 function NewLogement() {
 
@@ -93,12 +94,12 @@ function NewLogement() {
     }
     
     return (
-        <div>
+        <div className="new-logement">
             {displayStep(step)}
-            <div style={step===7? {display: "none"} : {display: "flex"}}>
-                <button onClick={handlePrevious} style={step===1? {display: "none"} : {display: "block"}}>Précédent</button>
+            <div className="new-logement__buttons" style={step===7? {display: "none"} : {display: "flex"}}>
+                <button onClick={handlePrevious} style={step===1? {display: "none"} : {display: "block"}} className="previous">Précédent</button>
                 {/* <button onClick={step===6? handleCreate : handleNext}>{step===6? "Valider" : "Suivant"}</button> */}
-                <button onClick={handleNext}>{step===6? "Valider" : "Suivant"}</button>
+                <button className="next" onClick={handleNext} style={step===1? {marginLeft: "auto"} : {marginLeft: "0"}}>{step===6? "Valider" : "Suivant"}</button>
             </div>
         </div>
     );

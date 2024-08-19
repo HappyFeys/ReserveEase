@@ -1,0 +1,270 @@
+.new-logement{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    .new-logement__buttons{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+        margin-top: auto;
+        button{
+            width: 40%;
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 10px;
+            border: 1px solid var(--CeladonBlue);
+        }
+        .next{
+            background-color: var(--CeladonBlue);
+            color: #fff;
+        }
+        .previous{
+            background-color: #fff;
+            color: var(--CeladonBlue);
+        }
+    }
+    .stepCreate{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10px;
+        .stepCreate__header{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            h1{
+                font-size: 24px;
+                color: var(--CeladonBlue);
+            }
+            p{
+                color: var(--AuroMetalSaurus);
+                text-align: center;
+            }
+        }
+        .stepCreate__form{
+            margin: 20px 0;
+            h2{
+                color: var(--Onyx);
+                font-size: 20px;
+            }
+            label{
+                color: var(--Onyx);
+            }
+            .form-check{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin: 5px 0;
+                input[type="radio"] {
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid #007bff;
+                    border-radius: 50%;
+                    outline: none;
+                    cursor: pointer;
+                    position: relative;
+                }
+                
+                input[type="radio"]:checked {
+                    background-color: #007bff;
+                }
+                
+                input[type="radio"]:checked::after {
+                    content: "✔";
+                    display: block;
+                    color: white;
+                    font-size: 12px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            .stepCreate__form--text{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                margin: 10px 0;
+                input{
+                    width: 100%;
+                    height: 60px;
+                    border-radius: 10px;
+                    outline: none;
+                    border: none;
+                    text-indent: 20px;
+                }
+                p{
+                    color: var(--Onyx);
+                }
+            }
+            .stepCreate__form--number{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                gap: 10px;
+                margin: 10px 0;
+                p{
+                    color: var(--Onyx);
+                }
+                .form--number--container{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 10px;
+                    .form--number{
+                        display: flex;
+                        margin-top: 10px;
+                        input{
+                            width: 50px;
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                            text-align: center;
+                            color: var(--CeladonBlue);
+                        }
+                        button{
+                            background-color: #fff;
+                            border: 1px solid var(--CeladonBlue);
+                            color: var(--CeladonBlue);
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+            h3{
+                color: var(--Onyx);
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            .stepCreate__form--checkbox{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin: 10px 0;
+                input[type="checkbox"]{
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid var(--CeladonBlue);
+                    border-radius: 50%;
+                    outline: none;
+                    cursor: pointer;
+                    position: relative;
+                }
+                input[type="checkbox"]:checked {
+                    background-color: var(--CeladonBlue);
+                }
+                
+                input[type="checkbox"]:checked::after {
+                    content: "✔";
+                    display: block;
+                    color: white;
+                    font-size: 12px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+        .stepCreate__form--title{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 10px 0;
+            input{
+                width: 100%;
+                height: 60px;
+                border-radius: 10px;
+                outline: none;
+                border: none;
+                text-indent: 20px;
+            }
+            p{
+                color: var(--Onyx);
+            }  
+        }
+        .photos-uploader{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            border: 1px solid var(--CeladonBlue);
+            border-radius: 10px;
+            padding: 10px;
+            input{
+                display: none;
+            }
+            label{
+                color: var(--CeladonBlue);
+            }
+        }
+        .photos-preview--container{
+            width: 100%;
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            .photo-preview{
+                width: 45%;
+                height: fit-content;
+                border-radius: 10px;
+                overflow: hidden;
+                position: relative;
+                button{
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    background-color: #fff;
+                    border: 1px solid var(--CeladonBlue);
+                    color: var(--CeladonBlue);
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                }
+            }
+        }
+        .stepCreate__price{
+            margin: 10px 0;
+            .stepCreate__price--input{
+                display: flex;
+                font-size: 40px;
+                border: 1px solid var(--AuroMetalSaurus);
+                border-radius: 10px;
+                padding: 5px;
+                margin: 10px 0;
+                input{
+                    width: 100%;
+                    height: 60px;
+                    border-radius: 10px;
+                    outline: none;
+                    border: none;
+                    text-indent: 20px;
+                    background-color: transparent;
+                }
+            }
+            p{
+                color: var(--Onyx);
+            }
+        }
+    }
+}

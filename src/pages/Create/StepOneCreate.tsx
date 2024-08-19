@@ -60,51 +60,59 @@ function StepOneCreate({ onDataChange }: StepProps) {
     };
 
     return (
-        <div>
-            <h1>Parlez-nous de votre logement</h1>
-            <p>Au cours de cette étape, nous allons vous demander quel type de logement vous proposez. Nous vous demanderons ensuite d'indiquer son emplacement et sa capacité d'accueil.</p>
+        <div className="stepCreate">
+            <div className="stepCreate__header">
+                <h1>Parlez-nous de votre logement</h1>
+                <p>Au cours de cette étape, nous allons vous demander quel type de logement vous proposez. Nous vous demanderons ensuite d'indiquer son emplacement et sa capacité d'accueil.</p>
+            </div>
             
-            <h2>Parmis les propositions suivantes, laquelle décrit le mieux votre logement ?</h2>
 
-            {filter?.filter.typeHebergement && filter.filter.typeHebergement.map((type) => (
-                <div className="form-check" key={type}>
-                    <input className="form-check-input" type="radio" name="type" id={type} value={type} onChange={handleRadioChange} />
-                    <label className="form-check-label" htmlFor={type}>
+            <div className="stepCreate__form">
+                <h2>Parmis les propositions suivantes, laquelle décrit le mieux votre logement ?</h2>
+                {filter?.filter.typeHebergement && filter.filter.typeHebergement.map((type) => (
+                    <div className="form-check" key={type}>
+                        <input className="form-check-input" type="radio" name="type" id={type} value={type} onChange={handleRadioChange} />
+                        <label className="form-check-label" htmlFor={type}>
                         {type}
-                    </label>
-                </div>
-            ))}
-
-            <h2>Où est situé votre logement ?</h2>
-            <div>
-                <label htmlFor="pays">Pays : </label>
-                <input type="text" name="pays" id="pays" placeholder="Saisissez votre pays" onChange={handleChange} />
-            </div>
-            <div>
-                <label htmlFor="adresse">Adresse : </label>
-                <input type="text" name="adresse" id="adresse" placeholder="Saisissez votre numéro et libellé de voie" onChange={handleChange} />
-            </div>
-            <div>
-                <label htmlFor="ville">Ville : </label>
-                <input type="text" name="ville" id="ville" placeholder="Saisissez votre ville" onChange={handleChange} />
-            </div>
-
-            <h2>Donnez les informations principales concernant votre logement</h2>
-            <div>
-                <div>
-                    <p>Voyageurs</p>
-                    <div>
-                        <button onClick={handleReduceVoyageur}>-</button>
-                        <input type="number" name="voyageurs" id="voyageurs" value={voyageur} onChange={handleChange} />
-                        <button onClick={handleMoreVoyageur}>+</button>
+                        </label>
                     </div>
+                ))}
+            </div>
+
+            <div className="stepCreate__form">
+                <h2>Où est situé votre logement ?</h2>
+                <div className="stepCreate__form--text">
+                    <label htmlFor="pays">Pays : </label>
+                    <input type="text" name="pays" id="pays" placeholder="Saisissez votre pays" onChange={handleChange} />
                 </div>
-                <div>
-                    <p>Chambre</p>
-                    <div>
-                        <button onClick={handleReduceChamber}>-</button>
-                        <input type="number" name="chambres" id="chambres" value={chamber} onChange={handleChange} />
-                        <button onClick={handleMoreChamber}>+</button>
+                <div className="stepCreate__form--text">
+                    <label htmlFor="adresse">Adresse : </label>
+                    <input type="text" name="adresse" id="adresse" placeholder="Saisissez votre numéro et libellé de voie" onChange=    {handleChange} />
+                </div>
+                <div className="stepCreate__form--text">
+                    <label htmlFor="ville">Ville : </label>
+                    <input type="text" name="ville" id="ville" placeholder="Saisissez votre ville" onChange={handleChange} />
+                </div>
+            </div>
+
+            <div className="stepCreate__form">
+                <h2>Donnez les informations principales concernant votre logement</h2>
+                <div className="stepCreate__form--number">
+                    <div className="form--number--container">
+                        <p>Voyageurs</p>
+                        <div className="form--number">
+                            <button onClick={handleReduceVoyageur}>-</button>
+                            <input type="number" name="voyageurs" id="voyageurs" value={voyageur} onChange={handleChange} />
+                            <button onClick={handleMoreVoyageur}>+</button>
+                        </div>
+                    </div>
+                    <div className="form--number--container">
+                        <p>Chambre</p>
+                        <div className="form--number">
+                            <button onClick={handleReduceChamber}>-</button>
+                            <input type="number" name="chambres" id="chambres" value={chamber} onChange={handleChange} />
+                            <button onClick={handleMoreChamber}>+</button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -52,18 +52,20 @@ function StepTwoCreate({ onDataChange }: StepProps) {
     }
 
     return (
-        <div>
-            <h1>Faites sortir votre annonce du lot</h1>
-            <p>Au cours de cette étape, vous pourrez ajouter certains des équipements proposés dans votre logement. Vous pourrez ensuite ajouter un titre et une description et au moins 5 photos.</p>
+        <div className="stepCreate">
+            <div className="stepCreate__header">
+                <h1>Faites sortir votre annonce du lot</h1>
+                <p>Au cours de cette étape, vous pourrez ajouter certains des équipements proposés dans votre logement. Vous pourrez ensuite ajouter un titre et une description et au moins 5 photos.</p>
+            </div>
         
-            <div>
+            <div className="stepCreate__form">
                 <h2>Indiquez aux voyageurs quels sont les équipements de votre logement</h2>
                 <p>Vous pourrez ajouter des équipements une fois votre annonce publiée</p>
             </div>
-            <div>
+            <div className="stepCreate__form">
                 <h3>Y-a-t-il des endroits intéressants près de chez vous ?</h3>
                 {filter?.filter.localisation.map(localisation => (
-                    <div key={localisation}>
+                    <div key={localisation} className="stepCreate__form--checkbox">
                         <input
                             type="checkbox"
                             id={localisation}
@@ -75,10 +77,10 @@ function StepTwoCreate({ onDataChange }: StepProps) {
                     </div>
                 ))}
             </div>
-            <div>
+            <div className="stepCreate__form">
                 <h3>Qu'en est-il de ces équipements préférés des voyageurs ?</h3>
                 {filter?.filter.equipements.map(equipement => (
-                    <div key={equipement}>
+                    <div key={equipement} className="stepCreate__form--checkbox">
                         <input
                             type="checkbox"
                             id={equipement}
@@ -90,10 +92,10 @@ function StepTwoCreate({ onDataChange }: StepProps) {
                     </div>
                 ))}
             </div>
-            <div>
+            <div className="stepCreate__form">
                 <h3>Comment qualifiez-vous votre logement ?</h3>
                 {filter?.filter.confortEtStyle.map(confortEtStyle => (
-                    <div key={confortEtStyle}>
+                    <div key={confortEtStyle} className="stepCreate__form--checkbox">
                         <input
                             type="checkbox"
                             id={confortEtStyle}
@@ -105,10 +107,10 @@ function StepTwoCreate({ onDataChange }: StepProps) {
                     </div>
                 ))}
             </div>
-            <div>
+            <div className="stepCreate__form">
                 <h3>Un petit plus à proposer à vos visiteurs ?</h3>
                 {filter?.filter.servicesSupplementaires.map(servicesSupplementaires => (
-                    <div key={servicesSupplementaires}>
+                    <div key={servicesSupplementaires} className="stepCreate__form--checkbox">
                         <input
                             type="checkbox"
                             id={servicesSupplementaires}

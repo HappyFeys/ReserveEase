@@ -3,28 +3,37 @@ import React, { useState } from "react";
 import { StepProps } from "../../types/createLogement.type";
 
 function StepFiveCreate({onDataChange}: StepProps) {
-    const [price, setPrice] = useState<number>(0);
+    const [price, setPrice] = useState<string>("");
 
     const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = parseFloat(event.target.value);
-        setPrice(isNaN(value) ? 0 : value); 
-        onDataChange("prix", value);
+        const value = event.target.value;
+        setPrice(value);
+
+
+        const parsedValue = parseFloat(event.target.value);
+        onDataChange("prix", isNaN(parsedValue) ? 0 : parsedValue);
     };
 
     return (
-        <div>
-            <h1>A présent, fixez votre prix</h1>
-            <p>Vous pouvez le modifier à tout moment</p>
+        <div className="stepCreate">
+            <div className="stepCreate__header">
+                <h1>A présent, fixez votre prix</h1>
+                <p>Vous pouvez le modifier à tout moment</p>
+            </div>
 
-            <input 
-                type="number" 
-                value={price} 
-                onChange={handlePriceChange} 
-                min="0"
-
-            />
-
-            <p>Prix à payer par le voyageur : {price > 0 ? (price * 1.2).toFixed(2) : 0}€</p>
+            <div className="stepCreate__price">
+                <div className="stepCreate__price--input">
+                    <label htmlFor="price">€</label>
+                    <input 
+                        type="number" 
+                        value={price ? price : ""} 
+                        onChange={handlePriceChange} 
+                        min="0"
+                        id="price"
+                        />
+                </div>
+                <p>Prix à payer par le voyageur : {price && parseFloat(price) > 0 ? (parseFloat(price) * 1.2).toFixed(2): "0"}€</p>
+            </div>
         </div>
     );
 }
