@@ -4,12 +4,16 @@
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 20px;
-        h2{
-            font-size: 20px;
-            margin-right: auto;
-            margin-left: 20px;
-            color: var(--Onyx);
-        }
+    a{
+        text-decoration: none;
+        color: var(--Onyx);
+    }
+    h2{
+        font-size: 20px;
+        margin-right: auto;
+        margin-left: 20px;
+        color: var(--Onyx);
+    }
     .hero__card{
         width: 250px;
         height: 250px;
@@ -51,6 +55,9 @@
             .pville{
                 font-weight: var(--SemiBold);
             }
+        }
+        .hero__card--price{
+            color: var(--CeladonBlue);
         }
     }
 }

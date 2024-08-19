@@ -35,7 +35,7 @@ function Hero({logements} : HeroProps) {
                 className="mySwiper">
 
             {logements.map((logement) => (
-                <SwiperSlide><Link to={`/booking/${logement.id}`}><div key={logement.id} className="hero__card" style={{backgroundImage: `url(./../../../../../src/assets/img/lieu/${logement.imageName})`}}>
+                <SwiperSlide key={"hero"+logement.id}><Link to={`/booking/${logement.id}`}><div  className="hero__card" style={{backgroundImage: `url(./../../../../../src/assets/img/lieu/${logement.imageName})`}}>
                 <img src={favourite} alt="Favoris" className="hero__card--favourite" />
                 <div className="hero__card--content">
                     <div className="hero__card--text">

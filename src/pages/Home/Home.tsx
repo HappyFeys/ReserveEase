@@ -26,7 +26,7 @@ function Home() {
         return <div>Loading...</div>;
     }
 
-    console.log(homeData);
+    console.log(homeData.filter.localisation);
 
     return (
         <>

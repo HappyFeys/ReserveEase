@@ -9,6 +9,8 @@ import Verification from './pages/Connexion/Verification'
 import Booking from './pages/Booking/Booking'
 import BookingDetails from './pages/Booking/BookingDetails'
 import Profile from './pages/Profile/Profile'
+import ProfileEdit from './pages/Profile/ProfileEdit'
+import NewLogement from './pages/Create/NewLogement'
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
   {
     path:'/profile',
     element: <Profile />
+  },
+  {
+    path: '/profile/edit',
+    element: <ProfileEdit />
+  },
+  {
+    path: '/profile/logement',
+    element: <NewLogement />
   }
 ])
 
