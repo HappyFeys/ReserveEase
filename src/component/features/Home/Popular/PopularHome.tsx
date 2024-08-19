@@ -18,7 +18,7 @@ function PopularHome({logements} : PopularHomeProps) {
 
             <div className="popular__container">
                 {logements.map((logement) => (
-                    <Link to={`/logement/${logement.id}`} key={logement.id} className="popular__card">
+                    <Link to={`/booking/${logement.id}`} key={logement.id} className="popular__card">
                         <div className="card--left">
                             <img src={`./../../../../../src/assets/img/lieu/${logement.imageName}`} alt={logement.ville} />
                             <div className="popular__description">

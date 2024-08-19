@@ -5,6 +5,7 @@ import point from "./../../../src/assets/icons/map-point.svg"
 import Button from "../../component/common/Button/Button";
 import chat from "./../../../src/assets/icons/message.svg"
 import { Link, useSearchParams } from "react-router-dom";
+import NavBar from "../../component/layout/Navigation/NavBar";
 
 function Booking() {
 
@@ -106,6 +107,7 @@ function Booking() {
                     <Link to={`/reserver/${details.id}`}><Button textColors="var(--CeladonBlue)" bgColors="white">Réserver</Button></Link>
                 </div>
             </div>
+            <NavBar />
         </div>
     );
 }
