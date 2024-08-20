@@ -1474,6 +1474,43 @@ body {
   padding: 20px 10px;
   border-radius: 10px;
 }
+.booking__details .booking__details__form .picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.booking__details .booking__details__form .picker calendar-range svg {
+  height: 16px;
+  width: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+.booking__details .booking__details__form .picker calendar-range path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.booking__details .booking__details__form .picker calendar-month {
+  --color-accent: var(--CeladonBlue);
+  --color-text-on-accent: #ffffff;
+}
+.booking__details .booking__details__form .picker calendar-month::part(button) {
+  border-radius: 3px;
+}
+.booking__details .booking__details__form .picker calendar-month::part(range-inner) {
+  border-radius: 0;
+}
+.booking__details .booking__details__form .picker calendar-month::part(range-start) {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+.booking__details .booking__details__form .picker calendar-month::part(range-end) {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+.booking__details .booking__details__form .picker calendar-month::part(range-start range-end) {
+  border-radius: 3px;
+}
 .booking__details .booking__details__form .booking__details__form--elem {
   display: flex;
   align-items: center;
