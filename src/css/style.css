@@ -1524,6 +1524,8 @@ body {
 
 .profile {
   width: 100%;
+  height: 100vh;
+  margin-bottom: 30px;
 }
 .profile .profile__header {
   width: 100%;
@@ -1587,7 +1589,6 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
   padding: 20px;
 }
 .new-logement .new-logement__buttons {
@@ -1802,6 +1803,7 @@ body {
 .new-logement .stepCreate .photos-preview--container {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: 20px;
 }
@@ -1850,6 +1852,75 @@ body {
 }
 .new-logement .stepCreate .stepCreate__price p {
   color: var(--Onyx);
+}
+.new-logement .stepCreate .verificationCreate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.new-logement .stepCreate .verificationCreate .verification__img {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.new-logement .stepCreate .verificationCreate .verification__img .verification__img--main {
+  margin-bottom: 10px;
+}
+.new-logement .stepCreate .verificationCreate .verification__img .verification__img--secondary {
+  width: 100%;
+  display: flex;
+}
+.new-logement .stepCreate .verificationCreate .verification__img .verification__img--secondary img {
+  width: 20%;
+}
+.new-logement .stepCreate .verificationCreate .verification__text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.new-logement .stepCreate .verificationCreate .verification__text .verification__text--container {
+  margin: 5px 0;
+  color: var(--AuroMetalSaurus);
+  position: relative;
+}
+.new-logement .stepCreate .verificationCreate .verification__text .verification__text--container .verification__text--title {
+  font-weight: var(--SemiBold);
+  color: var(--Onyx);
+}
+.new-logement .stepCreate .verificationCreate .verification__text .verification__text--container .verification__text--options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.new-logement .stepCreate .verificationCreate .verification__text .verification__text--container .verification__text--options div {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 5px;
+  border: 1px solid var(--AuroMetalSaurus);
+  border-radius: 5px;
+  padding: 5px;
+}
+.new-logement .stepCreate .verificationCreate .verification__text .container--flex {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.new-logement .stepCreate .verificationCreate .verification__text .container--flex p {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.new-logement .stepCreate .verificationCreate .modifier {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 10px;
 }
 
 html {

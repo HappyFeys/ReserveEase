@@ -15,9 +15,11 @@ function Thx() {
 
 
     return (
-        <div>
-            <h1>Merci pour votre ajout !</h1>
-            <p>Votre logement a bien été ajouté, votre annonce apparaitra dans les 24h.</p>  
+        <div className="stepCreate">
+            <div className="stepCreate__header">
+                <h1>Merci pour votre ajout !</h1>
+                <p>Votre logement a bien été ajouté, votre annonce apparaitra dans les 24h.</p>  
+            </div>
         </div>
     );
 }

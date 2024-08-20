@@ -17,7 +17,7 @@ export interface CreateLogementType {
         chambres: number
         options: Filters
         voyageurs: number
-        galerie : string[]
+        galerie : File[]
         imageName : string
 }
 

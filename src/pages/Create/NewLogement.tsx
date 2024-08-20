@@ -70,7 +70,7 @@ function NewLogement() {
             case 5 :
                 return <StepFiveCreate onDataChange={onDataChange}/>;
             case 6 :
-                return <VerificationLogement information={information}/>;
+                return <VerificationLogement information={information} setStep={setStep}/>;
             case 7 :
                 return <Thx/>
             default:
