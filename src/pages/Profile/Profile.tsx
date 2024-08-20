@@ -6,15 +6,21 @@ import favorite from "./../../../src/assets/icons/favouriteProfil.svg"
 import accountSetting from "./../../../src/assets/icons/parameters.svg"
 import NavBar from "../../component/layout/Navigation/NavBar";
 import Back from "../../component/common/Button/Back";
-import add from "./../../../src/assets/icons/add.svg"
+import add from "./../../../src/assets/icons/add.svg";
+import house from "./../../../src/assets/icons/house.svg";
 
 
 function Profile() {
+
+    const mesLogements = [{
+        id: 1,}] //a retirer quand j'aurai le get
 
     const navigate = useNavigate()
     const handleDisconnect = () => {
         userLogout(navigate);
     }
+
+
 
     return (
         <div className="profile">
@@ -32,7 +38,7 @@ function Profile() {
             <Link to="/profile/favorite"><div className="profile__edit"><img src={favorite} alt="favorite" /><p>Vos favoris</p></div></Link>
             <Link to="/profile/edit"><div className="profile__edit"><img src={accountSetting} alt="accountSetting" /><p>Modifier son compte</p></div></Link>
             <Link to="/profile/logement"><div className="profile__edit"><img src={add} alt="Add a logement" /><p>Ajouter un logement</p></div></Link>
-
+            <Link to="/profile/mesLogements"><div className="profile__edit" style={mesLogements.length>0? {}: {display: "none"}}><img src={house} alt="Your logement" /><p>Mes logements</p></div></Link>
             <NavBar />
         </div>
     );
